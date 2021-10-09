@@ -93,4 +93,22 @@ Sendo assim, o ínicio da sua query, onde é informado as colunas a serem exibid
   SELECT 
     Cliente.Cliente_id, Cliente.Nome, Telefone.Numero
 ```
+$ ~ $
 
+### Usando o INNER JOIN com duas tabelas
+
+Para unir as duas tabelas através das informações a qual a mesmas se relacionam é necessário usar uma condição através do WHERE informando qual das colunas devem ser usadas como referencia para a união dessas informações, nesse caso seria a coluna Cliente_id.
+
+$ ~ $
+
+Sendo assim, sua query ficaria assim:  
+```mysql
+ SELECT 
+    Cliente.Cliente_id, Cliente.Nome, Telefone.Numero
+FROM
+    Cliente
+        INNER JOIN
+    Telefone
+WHERE
+    Cliente.Cliente_id = Telefone.Cliente_id;
+```
