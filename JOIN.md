@@ -112,3 +112,23 @@ FROM
 WHERE
     Cliente.Cliente_id = Telefone.Cliente_id;
 ```
+
+## Alias para tabelas
+
+No bloco passado *(bloco 19)*, você aprendeu a usar o alias para nomear colunas em suas queries, porém ele também pode ser usado para nomear tabelas, se tornado um bom uso para essa situação, pois isso tornará sua query menos verbosa:
+
+$ ~ $
+
+```mysql
+SELECT 
+    C.Cliente_id, C.Nome, T.Numero
+FROM
+    Cliente AS C
+        INNER JOIN
+    Telefone AS T
+WHERE
+    C.Cliente_id = T.Cliente_id;
+```
+*Usar a primeira letra ou uma abreviação do nome da tabela como alias é muito comum e uma ótima opção*
+
+
