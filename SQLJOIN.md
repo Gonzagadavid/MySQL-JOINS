@@ -190,7 +190,7 @@ Imagine uma situação onde você precisará consultar o telefone e o email de c
 
 ### Usando o INNER JOIN com mais de duas tabelas
 
-Para unir mais de duas tabalas basta adicionar mais um INNER JOIN depois do ON do INNER JOIN anterior usando a coluna na qual uma das tabelas anteriores relacionem com ela.
+Para unir mais de duas tabalas basta adicionar mais um INNER JOIN depois do WHERE do anterior usando a coluna na qual uma das tabelas anteriores relacionem com ela.
 
 &nbsp;
 
