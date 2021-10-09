@@ -41,7 +41,7 @@ $ ~ $
 
 # Porque isso é importante?
 
-Como você viu anteriormante um banco de dados relacionais possui varias tabelas que relaciona os dados entre si, usando indicadores como referência, sendo assim, muitas vezes as informções da qual você precisará para sua consulta poderá estar em mais de uma tabela, surgindo a necessidade de unir duas ou mais tabelas em uma mesma query.
+Como você viu anteriormante o banco de dados relacional possui varias tabelas que relaciona os dados entre si, usando indicadores como referência, sendo assim, muitas vezes as informações da qual você precisará para sua consulta poderá estar em mais de uma tabela, surgindo a necessidade de unir duas ou mais tabelas em uma mesma query.
 
 --- 
 $ ~ $
@@ -65,7 +65,7 @@ Imagine uma situação onde você precisará consultar o telefone de clientes, e
 $ ~ $
 
 **Tabela Telefone:**
-| Cliente_id | Nome             |
+| Cliente_id | Numero         |
 | :---------:| :--------------: |
 | 1          | (19) 16044-3249  |
 | 2          | (73) 45578-8629  |
@@ -74,7 +74,23 @@ $ ~ $
 
 $ ~ $
 
-Dessa forma seria difíci associar o numero de telefone com o nome.
+Dessa forma seria difíci associar o numero de telefone com o nome da pessoa.
 
-### Primeiros passos com o INNER JOIN
+### Primeiros passos para o uso do INNER JOIN
+
+Ao trabalhar com duas ou mais tabelas você precisará se atentar com as colunas que possuem o mesmo nome, nesse caso seria a coluna Cliente_id, caso você não informe de qual tabela será extraida essa informação, um erro de ambiguidade será gerado. 
+```shell
+  Error Code: 1052. Column 'Cliente_id' in field list is ambiguous
+```
+
+Para evitar isso, informe a qual tabela essa coluna pertence, da seguinte forma: *Cliente.Cliente_id* para tabela Cliente e *Telefone.Cliente_id* para a tabela Telefone.  
+**Apesar das colunas Numero e Nome não gerar esse erro, por não existir nas duas tabelas, É UMA BOA PRÁTICA informar de qual tabela essas informações estão sendo extraídas. Isso tornará sua query mais legível e de fácil entendimento para manutenções ou mudanças futuras feitas por você ou por outra pessoa**
+
+$ ~ $
+
+Sendo assim, o ínicio da sua query, onde é informado as colunas a serem exibidas, ficaria assim:  
+```mysql
+  SELECT 
+    Cliente.Cliente_id, Cliente.Nome, Telefone.Numero
+```
 

@@ -1,0 +1,1 @@
+Ao trabalhar com duas ou mais tabelas você precisará se atentar com as colunas que possuem o mesmo nome, nesse caso seria a coluna Cliente_id, caso você não informe de qual tabela será extraida a informação, será gerado um erro de ambiguidade. Para fazer isso informe a tabela desta forma: Cliente.Cliente_id para tabela Cliente e Telefone.Ciente_id para a tabela Telefone.
