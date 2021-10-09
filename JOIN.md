@@ -4,7 +4,7 @@
 ## Sumário
 
 - [O que vamos aprender?](#o-que-vamos-aprender)  
-  - [Você será capaz de:](#voce-sera-capaz-de:)  
+  - [Você será capaz de:](#você-será-capaz-de)  
 - [Porque isso é importante ?](#por-que-isso-e-importante)  
 - [Conteúdos](#conteudos)  
   - [INNER JOIN](#inner-join)  
@@ -20,5 +20,14 @@
   
 ## O que vamos aprender ?
 
-Hoje você aprenderá a usar diversas formas de **Joins** no **MySQL**, unindo informações de **duas ou mais tabelas** com **informações relacionadas** entre si ou até mesmo da mesma tabela usando uma determinada condição de organização.  
+Hoje você aprenderá a usar diversas formas de **Joins** no **MySQL**, unindo informações de **duas ou mais tabelas** com **informações relacionadas** entre si ou até mesmo da **mesma tabela** usando uma **determinada condição** de organização.  
 *Vamos lá!* :rocket:
+
+---
+
+## Você será capaz de:  
+- Escrever queries unindo informações de duas tabelas utilizando o INNER JOIN;
+- Escrecer queries unindo duas tabelas, porém preservando todas as informções de uma delas, utilizando LEFT JOIN ou RIGHT JOIN;
+- Escrever queries utilizando os dados da mesma tabela como se fosse duas tabelas distintas;
+- Escrever queries que uni todas informações de duas tabelas utilizando o UNION ou UNION ALL;
+- Escrever subqueries dentro de uma query.
