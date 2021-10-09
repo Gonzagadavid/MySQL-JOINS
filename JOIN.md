@@ -31,3 +31,11 @@ Hoje você aprenderá a usar diversas formas de **Joins** no **MySQL**, unindo i
 - Escrever queries utilizando os dados da mesma tabela como se fosse duas tabelas distintas;
 - Escrever queries que uni todas informações de duas tabelas utilizando o UNION ou UNION ALL;
 - Escrever subqueries dentro de uma query.
+
+---
+
+## Porque isso é importante
+
+Como você viu anteriormante um banco de dados relacionais possui varias tabelas que relaciona os dados entre si, usando indicadores como referência, sendo assim, muitas vezes as informções da qual você precisará para sua consulta pode estar em mais de uma tabela, surgindo a necessidade de unir duas ou mais tabelas em uma mesma query.
+
+--- 
