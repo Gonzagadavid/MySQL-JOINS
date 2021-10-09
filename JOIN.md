@@ -9,7 +9,7 @@
 - [O que vamos aprender?](#o-que-vamos-aprender)  
   - [Você será capaz de:](#você-será-capaz-de)  
 - [Porque isso é importante?](#porque-isso-é-importante)  
-- [Conteúdos](#conteudos)  
+- [Conteúdos](#conteúdos)  
   - [INNER JOIN](#inner-join)  
   - [LEFT JOIN](#left-join)  
   - [RIGHT JOIN](#right-join)  
@@ -46,13 +46,13 @@ Como você viu anteriormante o banco de dados relacional possui varias tabelas q
 --- 
 &nbsp;
 
-# Conteúdo
+# Conteúdos
 
 ## INNER JOIN
 
 ### Situação a qual será aplicado o INNER JOIN entre duas tabelas
 
-Imagine uma situação onde você precisará consultar o telefone de clientes, e essas informações estão em tabelas separadas em seu banco de dados, da seguinte forma:
+Imagine uma situação onde você precisará consultar o telefone de clientes através do nome, e essas informações estão em tabelas separadas em seu banco de dados, da seguinte forma:
 
 **Tabela Cliente:** 
 | Cliente_id | Nome             |
@@ -65,7 +65,7 @@ Imagine uma situação onde você precisará consultar o telefone de clientes, e
 &nbsp;
 
 **Tabela Telefone:**
-| Cliente_id | Numero         |
+| Cliente_id | Numero           |
 | :---------:| :--------------: |
 | 1          | (19) 16044-3249  |
 | 2          | (73) 45578-8629  |
@@ -112,10 +112,20 @@ FROM
 WHERE
     Cliente.Cliente_id = Telefone.Cliente_id;
 ```
+&nbsp;
 
-## Alias para tabelas
+Retornando a seguinte tabela:
 
-No bloco passado *(bloco 19)*, você aprendeu a usar o alias para nomear colunas em suas queries, porém ele também pode ser usado para nomear tabelas, se tornado um bom uso para essa situação, pois isso tornará sua query menos verbosa:
+| Cliente_id | Nome             | Numero           |
+| :---------:| :--------------: | :--------------: |
+| 1          | Edgar Frank      | (19) 16044-3249  |
+| 2          | David Axmark     | (73) 45578-8629  |
+| 3          | Allan Larsson    | (23) 57692-8688  |
+| 4          | Michael Widenius | (62) 19832-5762  |
+
+## AS - Alias para tabelas
+
+No bloco passado *(bloco 19)*, você aprendeu a usar o alias(AS) para nomear colunas em suas queries, porém ele também pode ser usado para nomear tabelas, se tornado um bom uso para essa situação, tornando sua query menos verbosa:
 
 &nbsp;
 
@@ -131,4 +141,49 @@ WHERE
 ```
 *Usar a primeira letra ou uma abreviação do nome da tabela como alias é muito comum e uma ótima opção*
 
+&nbsp;
 
+Obtendo o mesmo resultado:
+
+| Cliente_id | Nome             | Numero           |
+| :---------:| :--------------: | :--------------: |
+| 1          | Edgar Frank      | (19) 16044-3249  |
+| 2          | David Axmark     | (73) 45578-8629  |
+| 3          | Allan Larsson    | (23) 57692-8688  |
+| 4          | Michael Widenius | (62) 19832-5762  |
+
+&nbsp;
+
+### Situação a qual será aplicado o INNER JOIN com mais de duas tabelas
+
+Imagine uma situação onde você precisará consultar o telefone e o email de clientes através do nome, e essas informações estão em 3 tabelas distintas, da seguinte forma:
+
+**Tabela Cliente:** 
+| Cliente_id | Nome             |
+| :---------:| :--------------: |
+| 1          | Edgar Frank      |
+| 2          | David Axmark     |
+| 3          | Allan Larsson    |
+| 4          | Michael Widenius |
+
+&nbsp;
+
+**Tabela Telefone:**
+| Cliente_id | Numero           |
+| :---------:| :--------------: |
+| 1          | (19) 16044-3249  |
+| 2          | (73) 45578-8629  |
+| 3          | (23) 57692-8688  |
+| 4          | (62) 19832-5762  |
+
+&nbsp;
+
+**Tabela Email:**
+| Cliente_id | Cliente_email             |
+| :---------:| :-----------------------: |
+| 1          | frankcodd@codddate.com    |
+| 2          | axmark@mariadb.com        |
+| 3          | larssonallan@mysqlab.com  |
+| 4          | Widenius@tcx.com          |
+
+&nbsp;
