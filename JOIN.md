@@ -2,7 +2,7 @@
 ##  *INNER JOIN, LEFT JOIN, RIGHT JOIN, SELF JOIN, UNION e SUBQUERY*
 
 ---
-$ ~ $
+&nbsp;
 
 # Sumário
 
@@ -20,7 +20,7 @@ $ ~ $
 - [Recursos Adicionais](#recursos-adicionais)  
 
 ---
-$ ~ $
+&nbsp;
 
 # O que vamos aprender?
 
@@ -37,14 +37,14 @@ Hoje você aprenderá a usar diversas formas de **Joins** no **MySQL**, unindo i
 - Escrever subqueries dentro de uma query.
 
 ---
-$ ~ $
+&nbsp;
 
 # Porque isso é importante?
 
 Como você viu anteriormante o banco de dados relacional possui varias tabelas que relaciona os dados entre si, usando indicadores como referência, sendo assim, muitas vezes as informações da qual você precisará para sua consulta poderá estar em mais de uma tabela, surgindo a necessidade de unir duas ou mais tabelas em uma mesma query.
 
 --- 
-$ ~ $
+&nbsp;
 
 # Conteúdo
 
@@ -62,7 +62,7 @@ Imagine uma situação onde você precisará consultar o telefone de clientes, e
 | 3          | Allan Larsson    |
 | 4          | Michael Widenius |
 
-$ ~ $
+&nbsp;
 
 **Tabela Telefone:**
 | Cliente_id | Numero         |
@@ -72,7 +72,7 @@ $ ~ $
 | 3          | (23) 57692-8688  |
 | 4          | (62) 19832-5762  |
 
-$ ~ $
+&nbsp;
 
 Dessa forma seria difíci associar o numero de telefone com o nome da pessoa.
 
@@ -86,20 +86,20 @@ Ao trabalhar com duas ou mais tabelas você precisará se atentar com as colunas
 Para evitar isso, informe a qual tabela essa coluna pertence, da seguinte forma: *Cliente.Cliente_id* para tabela Cliente e *Telefone.Cliente_id* para a tabela Telefone.  
 **Apesar das colunas Numero e Nome não gerar esse erro, por não existir nas duas tabelas, É UMA BOA PRÁTICA informar de qual tabela essas informações estão sendo extraídas. Isso tornará sua query mais legível e de fácil entendimento para manutenções ou mudanças futuras feitas por você ou por outra pessoa**
 
-$ ~ $
+&nbsp;
 
 Sendo assim, o ínicio da sua query, onde é informado as colunas a serem exibidas, ficaria assim:  
 ```mysql
   SELECT 
     Cliente.Cliente_id, Cliente.Nome, Telefone.Numero
 ```
-$ ~ $
+&nbsp;
 
 ### Usando o INNER JOIN com duas tabelas
 
 Para unir as duas tabelas através das informações a qual a mesmas se relacionam é necessário usar uma condição através do WHERE informando qual das colunas devem ser usadas como referencia para a união dessas informações, nesse caso seria a coluna Cliente_id.
 
-$ ~ $
+&nbsp;
 
 Sendo assim, sua query ficaria assim:  
 ```mysql
@@ -117,7 +117,7 @@ WHERE
 
 No bloco passado *(bloco 19)*, você aprendeu a usar o alias para nomear colunas em suas queries, porém ele também pode ser usado para nomear tabelas, se tornado um bom uso para essa situação, pois isso tornará sua query menos verbosa:
 
-$ ~ $
+&nbsp;
 
 ```mysql
 SELECT 
