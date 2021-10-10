@@ -50,9 +50,7 @@ Como você viu anteriormante o banco de dados relacional possui varias tabelas q
 
 ## INNER JOIN
 
-### Situação a qual será aplicado o INNER JOIN entre duas tabelas
-
-Imagine uma situação onde você precisará consultar o telefone de clientes através do nome, e essas informações estão em tabelas separadas em seu banco de dados, da seguinte forma:
+Para entender melhor o uso do **INNER JOIN**, imagine que você possui um banco de dados chamado MySqlStore, e que ele possui as seguintes tabelas:
 
 **Tabela Cliente:** 
 | Cliente_id | Nome             |
@@ -74,7 +72,19 @@ Imagine uma situação onde você precisará consultar o telefone de clientes at
 
 &nbsp;
 
-Dessa forma seria difíci associar o numero de telefone com o nome da pessoa.
+**Tabela Email:**
+| Cliente_id | Cliente_email             |
+| :---------:| :-----------------------: |
+| 1          | frankcodd@codddate.com    |
+| 2          | axmark@mariadb.com        |
+| 3          | larssonallan@mysqlab.com  |
+| 4          | Widenius@tcx.com          |
+
+&nbsp;
+
+### Situação a qual será aplicado o INNER JOIN entre duas tabelas
+
+Imagine uma situação onde você precisará consultar o telefone de clientes através do nome, mas essas informações estão em tabelas separadas em seu banco de dados. Dessa forma seria difíci associar o numero de telefone com o nome da pessoa.
 
 ### Primeiros passos para o uso do INNER JOIN
 
@@ -156,37 +166,8 @@ Obtendo o mesmo resultado:
 
 ### Situação a qual será aplicado o INNER JOIN com mais de duas tabelas
 
-Imagine uma situação onde você precisará consultar o telefone e o email de clientes através do nome, e essas informações estão em 3 tabelas distintas, da seguinte forma:
+Imagine uma situação onde você precisará consultar o telefone e o email de clientes através do nome, sendo que essas informações estão em 3 tabelas distintas.
 
-**Tabela Cliente:** 
-| Cliente_id | Nome             |
-| :---------:| :--------------: |
-| 1          | Edgar Frank      |
-| 2          | David Axmark     |
-| 3          | Allan Larsson    |
-| 4          | Michael Widenius |
-
-&nbsp;
-
-**Tabela Telefone:**
-| Cliente_id | Numero           |
-| :---------:| :--------------: |
-| 1          | (19) 16044-3249  |
-| 2          | (73) 45578-8629  |
-| 3          | (23) 57692-8688  |
-| 4          | (62) 19832-5762  |
-
-&nbsp;
-
-**Tabela Email:**
-| Cliente_id | Cliente_email             |
-| :---------:| :-----------------------: |
-| 1          | frankcodd@codddate.com    |
-| 2          | axmark@mariadb.com        |
-| 3          | larssonallan@mysqlab.com  |
-| 4          | Widenius@tcx.com          |
-
-&nbsp;
 
 ### Usando o INNER JOIN com mais de duas tabelas
 
