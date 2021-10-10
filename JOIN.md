@@ -323,8 +323,100 @@ ON
 | Cliente_id | Nome               | Funcionario_id | Nome               |
 | :---------:| :----------------: | :-------------:| :----------------: |
 | NULL       | NULL               | 1              | Stuart Bloom       |
-| 1          | Amy Farrah Fowler  | 2              |  Sheldon Cooper    |
+| 1          | Amy Farrah Fowler  | 2              | Sheldon Cooper     |
 | 3          | Leonard Hofstadter | 3              | Leonard Hofstadter |
 | NULL       | NULL               | 4              | Raj Koothrappali   |
 
+---
 &nbsp;
+
+# SELF JOIN
+
+## Situação a qual será aplicado o SELF JOIN
+
+Imagine que no seu banco de dados possui uma tabela chama Revista:
+
+**Tabela Revista:**
+| Revista_id | Titulo           | Editora   |
+| :--------- | :--------------- | :-------- |
+| 1          | Vingadores       | Marvel    |
+| 2          | Liga da Justiça  | DC Comics |
+| 3          | Batman           | DC Comics |
+| 4          | X-Men            | Marvel    |
+| 5          | Homem Aranha     | Marvel    |
+| 6          | Mulher Maravilha | DC Comics |
+
+Agora imagine que na sua consulta você precisrá ver de uma revista com todas as revistas da mesma editora
+
+## Usando o SELF JOIN
+
+Para situações como essa pode ser usado o SELF JOIN, pois você irá relacionar informações de uma tabela com informações contidas na mesma.
+Diferente dos outros JOINS o SELF JOIN não precisa ser declarado na query, basta declarar a mesma tabela duas vezes separando por uma virgula e usar alias(AS) diferente para as duas, usando um WHERE para informar os dados a serem relacionados.
+
+&nbsp;
+
+```mysql
+SELECT 
+    R1.Titulo, R1.Editora, R2.Titulo, R2.Editora
+FROM
+    Revista AS R1,
+    Revista AS R2
+WHERE
+    R1.Editora = R2.Editora;
+```
+&nbsp;
+
+| Titulo           | Editora   | Titulo           | Editora   |
+| :--------------- | :-------- | :--------------- | :-------- |
+| Homem Aranha     | Marvel    | Vingadores       | Marvel    |
+| X-Men            | Marvel    | Vingadores       | Marvel    |
+| Vingadores       | Marvel    | Vingadores       | Marvel    |
+| Mulher Maravilha | DC Comics | Liga da Justiça  | DC Comics |
+| Batman           | DC Comics | Liga da Justiça  | DC Comics |
+| Liga da Justiça  | DC Comics | Liga da Justiça  | DC Comics |
+| Mulher Maravilha | DC Comics | Batman           | DC Comics |
+| Batman           | DC Comics | Batman           | DC Comics |
+| Liga da Justiça  | DC Comics | Batman           | DC Comics |
+| Homem Aranha     | Marvel    | X-Men            | Marvel    |
+| X-Men            | Marvel    | X-Men            | Marvel    |
+| Vingadores       | Marvel    | X-Men            | Marvel    |
+| Homem Aranha     | Marvel    | Homem Aranha     | Marvel    |
+| X-Men            | Marvel    | Homem Aranha     | Marvel    |
+| Vingadores       | Marvel    | Homem Aranha     | Marvel    |
+| Mulher Maravilha | DC Comics | Mulher Maravilha | DC Comics |
+| Batman           | DC Comics | Mulher Maravilha | DC Comics |
+| Liga da Justiça  | DC Comics | Mulher Maravilha | DC Comics |
+
+&nbsp;
+
+Note que os Titulos que repediram foram o do segundo alias(AS) declarado, ou seja, R2. Também poderá perceber que o Titulo também comparou com ele mesmo, isso porque o comportamento da tabela com ela mesma é semelhante a de duas tabelas distintas.
+Para tornar a consulta com uma melhor visualização, você poderá alterar a ordem do alias(AS), utilizar o WHERE para que uma informação não se relacione com ela mesmo.
+
+&nbsp;
+
+```mysql
+SELECT 
+    R1.Titulo, R1.Editora, R2.Titulo, R2.Editora
+FROM
+    Revista AS R2,
+    Revista AS R1
+WHERE
+    R1.Editora = R2.Editora
+        AND R1.Titulo <> R2.Titulo;
+```
+&nbsp;
+
+| Titulo           | Editora   | Titulo           | Editora   |
+| :--------------- | :-------- | :--------------- | :-------- |
+| Vingadores       | Marvel    | Homem Aranha     | Marvel    |
+| Vingadores       | Marvel    | X-Men            | Marvel    |
+| Liga da Justiça  | DC Comics | Mulher Maravilha | DC Comics |
+| Liga da Justiça  | DC Comics | Batman           | DC Comics |
+| Batman           | DC Comics | Mulher Maravilha | DC Comics |
+| Batman           | DC Comics | Liga da Justiça  | DC Comics |
+| X-Men            | Marvel    | Homem Aranha     | Marvel    |
+| X-Men            | Marvel    | Vingadores       | Marvel    |
+| Homem Aranha     | Marvel    | X-Men            | Marvel    |
+| Homem Aranha     | Marvel    | Vingadores       | Marvel    |
+| Mulher Maravilha | DC Comics | Batman           | DC Comics |
+| Mulher Maravilha | DC Comics | Liga da Justiça  | DC Comics |
