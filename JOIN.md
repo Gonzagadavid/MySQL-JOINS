@@ -51,12 +51,12 @@ Como você viu anteriormante o banco de dados relacional possui varias tabelas q
 Imagine uma situação onde você precisará consultar o telefone de clientes através do nome, e essas informações estão em tabelas separadas em seu banco de dados, da seguinte forma:
 
 **Tabela Cliente:** 
-| Cliente_id | Nome             |
-| :---------:| :--------------: |
-| 1          | Edgar Frank      |
-| 2          | Karen Sparck     |
-| 3          | David Axmark     |
-| 4          | Carol Shaw       |
+| Cliente_id | Nome               |
+| :---------:| :----------------: |
+| 1          | Sheldon Cooper     |
+| 2          | Amy Farrah Fowler  |
+| 3          | Leonard Hofstadter |
+| 4          | Bernadette Maryann |
 
 &nbsp;
 
@@ -112,12 +112,12 @@ ON
 
 Retornando a seguinte tabela:
 
-| Cliente_id | Nome             | Numero           |
-| :---------:| :--------------: | :--------------: |
-| 1          | Edgar Frank      | (19) 16044-3249  |
-| 2          | Karen Sparck     | (73) 45578-8629  |
-| 3          | David Axmark     | (23) 57692-8688  |
-| 4          | Carol Shaw       | (62) 19832-5762  |
+| Cliente_id | Nome               | Numero           |
+| :---------:| :-----------------:| :--------------: |
+| 1          | Sheldon Cooper     | (19) 16044-3249  |
+| 2          | Amy Farrah Fowler  | (73) 45578-8629  |
+| 3          | Leonard Hofstadter | (23) 57692-8688  |
+| 4          | Bernadette Maryann | (62) 19832-5762  |
 
 ## AS - Alias para tabelas
 
@@ -141,12 +141,12 @@ ON
 
 Obtendo o mesmo resultado:
 
-| Cliente_id | Nome             | Numero           |
-| :---------:| :--------------: | :--------------: |
-| 1          | Edgar Frank      | (19) 16044-3249  |
-| 2          | Karen Sparck     | (73) 45578-8629  |
-| 3          | David Axmark     | (23) 57692-8688  |
-| 4          | Carol Shaw       | (62) 19832-5762  |
+| Cliente_id | Nome               | Numero           |
+| :---------:| :----------------: | :--------------: |
+| 1          | Sheldon Cooper     | (19) 16044-3249  |
+| 2          | Amy Farrah Fowler  | (73) 45578-8629  |
+| 3          | Leonard Hofstadter | (23) 57692-8688  |
+| 4          | Bernadette Maryann | (62) 19832-5762  |
 
 &nbsp;
 
@@ -155,12 +155,12 @@ Obtendo o mesmo resultado:
 Imagine uma situação onde você precisará consultar o telefone e o email de clientes através do nome, e essas informações estão em 3 tabelas distintas, da seguinte forma:
 
 **Tabela Cliente:** 
-| Cliente_id | Nome             |
-| :---------:| :--------------: |
-| 1          | Edgar Frank      |
-| 2          | Karen Sparck     |
-| 3          | David Axmark     |
-| 4          | Carol Shaw       |
+| Cliente_id | Nome               |
+| :---------:| :----------------: |
+| 1          | Sheldon Cooper     |
+| 2          | Amy Farrah Fowler  |
+| 3          | Leonard Hofstadter |
+| 4          | Bernadette Maryann |
 
 &nbsp;
 
@@ -177,10 +177,10 @@ Imagine uma situação onde você precisará consultar o telefone e o email de c
 **Tabela Email:**
 | Cliente_id | Cliente_email             |
 | :---------:| :-----------------------: |
-| 1          | frankcodd@codddate.com    |
-| 2          | karensj@SEmail.com        |
-| 3          | axmark@mariadb.com        |
-| 4          | shaw@atarimail.com        |
+| 1          | protoncooper@scemail.com  |
+| 2          | badgirl@scemail.com       |
+| 3          | luckyman@scemail.com      |
+| 4          | candybern@mbmail.com      |
 
 &nbsp;
 
@@ -207,12 +207,12 @@ ON E.Cliente_id = C.Cliente_id;
 
 Retorando o seguinte resultado:
 
-| Cliente_id | Nome             | Numero           | Cliente_email             |
-| :---------:| :--------------: | :--------------: | :-----------------------: |
-| 1          | Edgar Frank      | (19) 16044-3249  | frankcodd@codddate.com    |
-| 2          | Karen Sparck     | (73) 45578-8629  | karensj@SEmail.com        |
-| 3          | David Axmark     | (23) 57692-8688  | axmark@mariadb.com        |
-| 4          | Carol Shaw       | (62) 19832-5762  | shaw@atarimail.com        |
+| Cliente_id | Nome               | Numero           | Cliente_email             |
+| :---------:| :----------------: | :--------------: | :-----------------------: |
+| 1          | Sheldon Cooper     | (19) 16044-3249  | protoncooper@scemail.com  |
+| 2          | Amy Farrah Fowler  | (73) 45578-8629  | badgirl@scemail.com       |
+| 3          | Leonard Hofstadter | (23) 57692-8688  | luckyman@scemail.com      |
+| 4          | Bernadette Maryann | (62) 19832-5762  | candybern@mbmail.com      |
 
 ---
 &nbsp;
