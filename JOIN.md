@@ -219,6 +219,112 @@ Retorando o seguinte resultado:
 
 # LEFT JOIN e RIGHT JOIN
 
-Para entender LEFT JOIN e RIGHT JOIN, imagine um banco de dados com as seguintes tabelas:
+Para entender LEFT JOIN e RIGHT JOIN, imagine um banco de dados com as seguintes tabelas: 
+
+**Tabela Cliente:** 
+| Cliente_id | Nome               |
+| :---------:| :----------------: |
+| 1          | Sheldon Cooper     |
+| 2          | Amy Farrah Fowler  |
+| 3          | Leonard Hofstadter |
+| 4          | Bernadette Maryann |
 
 
+
+**Tabela Funcionario:** 
+| Funcionario_id | Nome               |
+| :-------------:| :----------------: |
+| 1              | Stuart Bloom       |
+| 2              | Sheldon Cooper     |
+| 3              | Leonard Hofstadter |
+| 4              | Raj Koothrappali   |
+
+Note que algumas pessoas que estão na tabela Cliente, também está na tabela Funcionario, caso voce queira indentificar essas pessoas bastaria usar o INNER JOIN:
+
+&nbsp;
+
+```mysql
+SELECT 
+        C.Cliente_id, C.Nome, F.Funcionario_id, F.Nome
+FROM
+        Cliente AS C
+                INNER JOIN
+        Funcionario AS F
+ON
+        C.Nome = F.Nome;
+```
+&nbsp;
+
+Essa query retorna a seguite tabela:
+
+| Cliente_id | Nome               | Funcionario_id | Nome               |
+| :---------:| :----------------: | :-------------:| :----------------: |
+| 1          | Sheldon Cooper     | 2              | Sheldon Cooper     |
+| 3          | Leonard Hofstadter | 3              | Leonard Hofstadter |
+
+&nbsp;
+
+## Situação a qual será aplicado o LEFT JOIN
+
+Agora imagine que você queira que sua consulta retorne os dados de todas as pessoas clientes, sendo pessoa funcionaria ou não, porém caso a pessoa seja funcionaria, você deseja que os dados da tabela Funcionario dessa pessoa sejam exibidos. 
+
+## Usando o LEFT JOIN
+
+Para essa situação é utilizado o LEFT JOIN, pois ele manterá todos os dados da primeira tabela declarada, mesmo que não existão na segunda tabela, preenchendo os campos faltantes com NULL.  
+*(O posicionamento das colunas não influenciam, apenas a ordem em que as tabelas são declaradas no LEFT JOIN)*
+
+&nbsp;
+
+```mysql
+SELECT 
+        C.Cliente_id, C.Nome, F.Funcionario_id, F.Nome
+FROM
+        Cliente AS C
+                LEFT JOIN
+        Funcionario AS F
+ON
+        C.Nome = F.Nome;
+```
+&nbsp;
+
+| Cliente_id | Nome               | Funcionario_id | Nome               |
+| :---------:| :----------------: | :-------------:| :----------------: |
+| 1          | Sheldon Cooper     | 2              | Sheldon Cooper     |
+| 2          | Amy Farrah Fowler  | NULL           | NULL               |
+| 3          | Leonard Hofstadter | 3              | Leonard Hofstadter |
+| 4          | Bernadette Maryann | NULL           | NULL               |
+
+&nbsp;
+
+## Situação a qual será aplicado o RIGHT JOIN
+
+Agora imagine que você queira que sua consulta retorne os dados de todas as pessoas funcionarias, sendo pessoa cliente ou não, porém caso a pessoa seja cliente, você deseja que os dados da tabela Ciente dessa pessoa sejam exibidos.
+
+## Usando o RIGHT JOIN
+
+Para essa situação pode ser utilizado o RIGHT JOIN, pois ele manterá todos os dados da segunda tabela declarada, mesmo que não existão na primeira tabela, preenchendo os campos faltantes com NULL.  
+*(O posicionamento das colunas não influenciam, apenas a ordem em que as tabelas são declaradas no RIGHT JOIN)*
+
+&nbsp;
+
+```mysql
+SELECT 
+        C.Cliente_id, C.Nome, F.Funcionario_id, F.Nome
+FROM
+        Cliente AS C
+                RIGHT JOIN
+        Funcionario AS F
+ON
+        C.Nome = F.Nome;
+```
+
+&nbsp;
+
+| Cliente_id | Nome               | Funcionario_id | Nome               |
+| :---------:| :----------------: | :-------------:| :----------------: |
+| NULL       | NULL               | 1              | Stuart Bloom       |
+| 1          | Amy Farrah Fowler  | 2              |  Sheldon Cooper    |
+| 3          | Leonard Hofstadter | 3              | Leonard Hofstadter |
+| NULL       | NULL               | 4              | Raj Koothrappali   |
+
+&nbsp;
