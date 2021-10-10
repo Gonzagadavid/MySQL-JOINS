@@ -44,6 +44,87 @@ Como você viu anteriormante o banco de dados relacional possui varias tabelas q
 --- 
 &nbsp;
 
+# JOIN
+
+  O JOIN é usado no mysql para trabalhar com dados de duas tabelas ou mais, tendo um grande papel no banco de dados relacionais.
+  Caso queira acompanhar os exemplos durante essa aula, basta executar o SQLScript abaixo no seu MYSQL Workbench.
+
+  ```mysql
+  DROP SCHEMA IF EXISTS ComicCenter ;
+
+CREATE SCHEMA IF NOT EXISTS ComicCenter ;
+USE ComicCenter ;
+
+CREATE TABLE IF NOT EXISTS ComicCenter.Cliente (
+  Cliente_id INT NOT NULL AUTO_INCREMENT,
+  Nome VARCHAR(45) NOT NULL,
+  PRIMARY KEY (Cliente_id));
+  
+CREATE TABLE IF NOT EXISTS ComicCenter.Telefone (
+  Cliente_id INT NOT NULL,
+  Numero VARCHAR(45) NOT NULL,
+  PRIMARY KEY (Numero),
+    FOREIGN KEY (Cliente_id)
+    REFERENCES ComicCenter.Cliente (Cliente_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+CREATE TABLE IF NOT EXISTS ComicCenter.Email (
+  Cliente_id INT NOT NULL,
+  Cliente_email VARCHAR(45) NOT NULL,
+  PRIMARY KEY (Cliente_email),
+    FOREIGN KEY (Cliente_id)
+    REFERENCES ComicCenter.Cliente (Cliente_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+    
+CREATE TABLE IF NOT EXISTS ComicCenter.Funcionario (
+  Funcionario_id INT NOT NULL,
+  Nome VARCHAR(45) NOT NULL,
+  PRIMARY KEY (Funcionario_id));
+  
+CREATE TABLE IF NOT EXISTS ComicCenter.Revista (
+  Revista_id INT NOT NULL,
+  Titulo VARCHAR(45) NOT NULL,
+  Editora VARCHAR(45) NOT NULL,
+  PRIMARY KEY (Revista_id));
+
+INSERT INTO ComicCenter.Cliente (Cliente_id, Nome) 
+  VALUES (1, 'Sheldon Cooper'), 
+         (2, 'Amy Farrah Fowler	'),
+         (3, 'Leonard Hofstadter'),
+         (4, 'Bernadette Maryann');
+
+INSERT INTO ComicCenter.Telefone (Cliente_id, Numero) 
+  VALUES (1, '(19) 16044-3249'),
+         (2, '(73) 45578-8629'),
+         (3, '(23) 57692-8688'),
+         (4, '(62) 19832-5762');
+
+INSERT INTO ComicCenter.Email (Cliente_id, Cliente_email) 
+  VALUES (1, 'protoncooper@scemail.com'),
+         (2, 'badgirl@scemail.com'), 
+         (3, 'luckyman@scemail.com'), 
+         (4, 'candybern@mbmail.com');
+
+INSERT INTO ComicCenter.Funcionario (Funcionario_id, Nome)
+  VALUES (1, 'Stuart Bloom'),
+         (2, 'Sheldon Cooper'),
+         (3, 'Leonard Hofstadter'),
+         (4, 'Raj Koothrappali');
+
+INSERT INTO ComicCenter.Revista (Revista_id, Titulo, Editora) 
+  VALUES (1, 'Vingadores', 'Marvel'),
+         (2, 'Liga da Justiça', 'DC Comics'),
+         (3, 'Batman', 'DC Comics'),
+         (4, 'X-Men', 'Marvel'),
+         (5, 'Homem Aranha', 'Marvel'),
+         (6, 'Mulher Maravilha', 'Dc Comics');
+
+  ```
+--- 
+&nbsp;
+
 # INNER JOIN
 
 ## Situação a qual será aplicado o INNER JOIN entre duas tabelas
@@ -99,6 +180,8 @@ Para unir as duas tabelas através das informações a qual a mesmas se relacion
 
 Sendo assim, sua query ficaria assim:  
 ```mysql
+USE ComicCenter;
+
  SELECT 
     Cliente.Cliente_id, Cliente.Nome, Telefone.Numero
 FROM
@@ -126,6 +209,8 @@ No bloco passado *(bloco 19)*, você aprendeu a usar o alias(AS) para nomear col
 &nbsp;
 
 ```mysql
+USE ComicCenter;
+
 SELECT 
     C.Cliente_id, C.Nome, T.Numero
 FROM
@@ -191,6 +276,8 @@ Para unir mais de duas tabalas basta adicionar mais um INNER JOIN depois do ON d
 &nbsp;
 
 ```mysql
+USE ComicCenter;
+
 SELECT 
     C.Cliente_id, C.Nome, T.Numero, E.Cliente_email
 FROM
@@ -244,6 +331,8 @@ Note que algumas pessoas que estão na tabela Cliente, também está na tabela F
 &nbsp;
 
 ```mysql
+USE ComicCenter;
+
 SELECT 
         C.Cliente_id, C.Nome, F.Funcionario_id, F.Nome
 FROM
@@ -276,6 +365,8 @@ Para essa situação é utilizado o LEFT JOIN, pois ele manterá todos os dados 
 &nbsp;
 
 ```mysql
+USE ComicCenter;
+
 SELECT 
         C.Cliente_id, C.Nome, F.Funcionario_id, F.Nome
 FROM
@@ -308,6 +399,8 @@ Para essa situação pode ser utilizado o RIGHT JOIN, pois ele manterá todos os
 &nbsp;
 
 ```mysql
+USE ComicCenter;
+
 SELECT 
         C.Cliente_id, C.Nome, F.Funcionario_id, F.Nome
 FROM
@@ -356,6 +449,8 @@ Diferente dos outros JOINS o SELF JOIN não precisa ser declarado na query, bast
 &nbsp;
 
 ```mysql
+USE ComicCenter;
+
 SELECT 
     R1.Titulo, R1.Editora, R2.Titulo, R2.Editora
 FROM
@@ -395,6 +490,8 @@ Para tornar a consulta com uma melhor visualização, você poderá alterar a or
 &nbsp;
 
 ```mysql
+USE ComicCenter;
+
 SELECT 
     R1.Titulo, R1.Editora, R2.Titulo, R2.Editora
 FROM
