@@ -9,13 +9,11 @@
 - [O que vamos aprender?](#o-que-vamos-aprender)  
   - [Você será capaz de:](#você-será-capaz-de)  
 - [Porque isso é importante?](#porque-isso-é-importante)  
-- [Conteúdos](#conteúdos)  
-  - [INNER JOIN](#inner-join)  
-  - [LEFT JOIN](#left-join)  
-  - [RIGHT JOIN](#right-join)  
-  - [SELF JOIN](#self-join)  
-  - [UNION](#union)  
-  - [SUBQUERY](#subquery)  
+- [INNER JOIN](#inner-join)  
+- [LEFT JOIN e RIGHT JOIN](#left-join-e-right-join)  
+- [SELF JOIN](#self-join)  
+- [UNION](#union)  
+- [SUBQUERY](#subquery)  
 - [Vamos praticar!](#vamos-praticar!)  
 - [Recursos Adicionais](#recursos-adicionais)  
 
@@ -46,11 +44,9 @@ Como você viu anteriormante o banco de dados relacional possui varias tabelas q
 --- 
 &nbsp;
 
-# Conteúdos
+# INNER JOIN
 
-## INNER JOIN
-
-### Situação a qual será aplicado o INNER JOIN entre duas tabelas
+## Situação a qual será aplicado o INNER JOIN entre duas tabelas
 
 Imagine uma situação onde você precisará consultar o telefone de clientes através do nome, e essas informações estão em tabelas separadas em seu banco de dados, da seguinte forma:
 
@@ -58,9 +54,9 @@ Imagine uma situação onde você precisará consultar o telefone de clientes at
 | Cliente_id | Nome             |
 | :---------:| :--------------: |
 | 1          | Edgar Frank      |
-| 2          | David Axmark     |
-| 3          | Allan Larsson    |
-| 4          | Michael Widenius |
+| 2          | Karen Sparck     |
+| 3          | David Axmark     |
+| 4          | Carol Shaw       |
 
 &nbsp;
 
@@ -76,7 +72,7 @@ Imagine uma situação onde você precisará consultar o telefone de clientes at
 
 Dessa forma seria difíci associar o numero de telefone com o nome da pessoa.
 
-### Primeiros passos para o uso do INNER JOIN
+## Primeiros passos para o uso do INNER JOIN
 
 Ao trabalhar com duas ou mais tabelas você precisará se atentar com as colunas que possuem o mesmo nome, nesse caso seria a coluna Cliente_id, caso você não informe de qual tabela será extraida essa informação, um erro de ambiguidade será gerado. 
 ```shell
@@ -95,7 +91,7 @@ Sendo assim, o ínicio da sua query, onde é informado as colunas a serem exibid
 ```
 &nbsp;
 
-### Usando o INNER JOIN com duas tabelas
+## Usando o INNER JOIN com duas tabelas
 
 Para unir as duas tabelas através das informações a qual a mesmas se relacionam é necessário informar qual das colunas devem ser usadas como referencia para a união dessas informações através do ON ,  nesse caso seria a coluna Cliente_id.
 
@@ -119,9 +115,9 @@ Retornando a seguinte tabela:
 | Cliente_id | Nome             | Numero           |
 | :---------:| :--------------: | :--------------: |
 | 1          | Edgar Frank      | (19) 16044-3249  |
-| 2          | David Axmark     | (73) 45578-8629  |
-| 3          | Allan Larsson    | (23) 57692-8688  |
-| 4          | Michael Widenius | (62) 19832-5762  |
+| 2          | Karen Sparck     | (73) 45578-8629  |
+| 3          | David Axmark     | (23) 57692-8688  |
+| 4          | Carol Shaw       | (62) 19832-5762  |
 
 ## AS - Alias para tabelas
 
@@ -148,13 +144,13 @@ Obtendo o mesmo resultado:
 | Cliente_id | Nome             | Numero           |
 | :---------:| :--------------: | :--------------: |
 | 1          | Edgar Frank      | (19) 16044-3249  |
-| 2          | David Axmark     | (73) 45578-8629  |
-| 3          | Allan Larsson    | (23) 57692-8688  |
-| 4          | Michael Widenius | (62) 19832-5762  |
+| 2          | Karen Sparck     | (73) 45578-8629  |
+| 3          | David Axmark     | (23) 57692-8688  |
+| 4          | Carol Shaw       | (62) 19832-5762  |
 
 &nbsp;
 
-### Situação a qual será aplicado o INNER JOIN com mais de duas tabelas
+## Situação a qual será aplicado o INNER JOIN com mais de duas tabelas
 
 Imagine uma situação onde você precisará consultar o telefone e o email de clientes através do nome, e essas informações estão em 3 tabelas distintas, da seguinte forma:
 
@@ -162,9 +158,9 @@ Imagine uma situação onde você precisará consultar o telefone e o email de c
 | Cliente_id | Nome             |
 | :---------:| :--------------: |
 | 1          | Edgar Frank      |
-| 2          | David Axmark     |
-| 3          | Allan Larsson    |
-| 4          | Michael Widenius |
+| 2          | Karen Sparck     |
+| 3          | David Axmark     |
+| 4          | Carol Shaw       |
 
 &nbsp;
 
@@ -182,13 +178,13 @@ Imagine uma situação onde você precisará consultar o telefone e o email de c
 | Cliente_id | Cliente_email             |
 | :---------:| :-----------------------: |
 | 1          | frankcodd@codddate.com    |
-| 2          | axmark@mariadb.com        |
-| 3          | larssonallan@mysqlab.com  |
-| 4          | Widenius@tcx.com          |
+| 2          | karensj@SEmail.com        |
+| 3          | axmark@mariadb.com        |
+| 4          | shaw@atarimail.com        |
 
 &nbsp;
 
-### Usando o INNER JOIN com mais de duas tabelas
+## Usando o INNER JOIN com mais de duas tabelas
 
 Para unir mais de duas tabalas basta adicionar mais um INNER JOIN depois do ON do INNER JOIN anterior usando a coluna na qual uma das tabelas anteriores relacionem com ela.
 
@@ -214,8 +210,15 @@ Retorando o seguinte resultado:
 | Cliente_id | Nome             | Numero           | Cliente_email             |
 | :---------:| :--------------: | :--------------: | :-----------------------: |
 | 1          | Edgar Frank      | (19) 16044-3249  | frankcodd@codddate.com    |
-| 2          | David Axmark     | (73) 45578-8629  | axmark@mariadb.com        |
-| 3          | Allan Larsson    | (23) 57692-8688  | larssonallan@mysqlab.com  |
-| 4          | Michael Widenius | (62) 19832-5762  | Widenius@tcx.com          |
+| 2          | Karen Sparck     | (73) 45578-8629  | karensj@SEmail.com        |
+| 3          | David Axmark     | (23) 57692-8688  | axmark@mariadb.com        |
+| 4          | Carol Shaw       | (62) 19832-5762  | shaw@atarimail.com        |
 
+---
 &nbsp;
+
+# LEFT JOIN e RIGHT JOIN
+
+Para entender LEFT JOIN e RIGHT JOIN, imagine um banco de dados com as seguintes tabelas:
+
+

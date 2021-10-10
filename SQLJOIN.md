@@ -113,6 +113,8 @@ Para unir as duas tabelas através das informações a qual a mesmas se relacion
 
 Sendo assim, sua query ficaria assim:  
 ```mysql
+USE MySqlStore;
+
  SELECT 
     Cliente.Cliente_id, Cliente.Nome, Telefone.Numero
 FROM
@@ -140,6 +142,8 @@ No bloco passado *(bloco 19)*, você aprendeu a usar o alias(AS) para nomear col
 &nbsp;
 
 ```mysql
+USE MySqlStore;
+
 SELECT 
     C.Cliente_id, C.Nome, T.Numero
 FROM
@@ -176,6 +180,8 @@ Para unir mais de duas tabalas basta adicionar mais um INNER JOIN depois do WHER
 &nbsp;
 
 ```mysql
+USE MySqlStore;
+
 SELECT 
     C.Cliente_id, C.Nome, T.Numero, E.Cliente_email
 FROM

@@ -1,1 +1,30 @@
 Ao trabalhar com duas ou mais tabelas você precisará se atentar com as colunas que possuem o mesmo nome, nesse caso seria a coluna Cliente_id, caso você não informe de qual tabela será extraida a informação, será gerado um erro de ambiguidade. Para fazer isso informe a tabela desta forma: Cliente.Cliente_id para tabela Cliente e Telefone.Ciente_id para a tabela Telefone.
+
+
+**Tabela Cliente:** 
+| Cliente_id | Nome             |
+| :---------:| :--------------: |
+| 1          | Edgar Frank      |
+| 2          | David Axmark     |
+| 3          | Allan Larsson    |
+| 4          | Michael Widenius |
+
+&nbsp;
+
+**Tabela Telefone:**
+| Cliente_id | Numero           |
+| :---------:| :--------------: |
+| 1          | (19) 16044-3249  |
+| 2          | (73) 45578-8629  |
+| 3          | (23) 57692-8688  |
+| 4          | (62) 19832-5762  |
+
+&nbsp;
+
+**Tabela Email:**
+| Cliente_id | Cliente_email             |
+| :---------:| :-----------------------: |
+| 1          | frankcodd@codddate.com    |
+| 2          | axmark@mariadb.com        |
+| 3          | larssonallan@mysqlab.com  |
+| 4          | Widenius@tcx.com          |
