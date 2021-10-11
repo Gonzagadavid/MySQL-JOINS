@@ -1,5 +1,5 @@
 # SQL JOIN
-##  *INNER JOIN, LEFT JOIN, RIGHT JOIN, SELF JOIN, UNION e SUBQUERY*
+##  *INNER JOIN, LEFT JOIN, RIGHT JOIN e SELF JOIN*
 
 ---
 &nbsp;
@@ -9,11 +9,10 @@
 - [O que vamos aprender?](#o-que-vamos-aprender)  
   - [Você será capaz de:](#você-será-capaz-de)  
 - [Porque isso é importante?](#porque-isso-é-importante)  
+- [JOIN](#join)  
 - [INNER JOIN](#inner-join)  
 - [LEFT JOIN e RIGHT JOIN](#left-join-e-right-join)  
 - [SELF JOIN](#self-join)  
-- [UNION](#union)  
-- [SUBQUERY](#subquery)  
 - [Vamos praticar!](#vamos-praticar!)  
 - [Recursos Adicionais](#recursos-adicionais)  
 
@@ -22,7 +21,7 @@
 
 # O que vamos aprender?
 
-Hoje você aprenderá a usar diversas formas de **Joins** no **MySQL**, unindo informações de **duas ou mais tabelas** com **informações relacionadas** entre si ou até mesmo da **mesma tabela** usando uma **determinada condição** de organização.  
+Hoje você aprenderá a usar os principais **Joins** no **MySQL**, unindo informações de **duas ou mais tabelas** com **informações relacionadas** entre si ou até mesmo da **mesma tabela** usando uma **determinada condição** de organização.  
 *Vamos lá!* :rocket:
 
 ---
@@ -31,8 +30,6 @@ Hoje você aprenderá a usar diversas formas de **Joins** no **MySQL**, unindo i
 - Escrever queries unindo informações de duas tabelas utilizando o INNER JOIN;
 - Escrecer queries unindo duas tabelas, porém preservando todas as informções de uma delas, utilizando LEFT JOIN ou RIGHT JOIN;
 - Escrever queries utilizando os dados da mesma tabela como se fosse duas tabelas distintas;
-- Escrever queries que uni todas informações de duas tabelas utilizando o UNION ou UNION ALL;
-- Escrever subqueries dentro de uma query.
 
 ---
 &nbsp;
@@ -47,10 +44,10 @@ Como você viu anteriormante o banco de dados relacional possui varias tabelas q
 # JOIN
 
   O JOIN é usado no mysql para trabalhar com dados de duas tabelas ou mais, tendo um grande papel no banco de dados relacionais.
-  Caso queira acompanhar os exemplos durante essa aula, basta executar o SQLScript abaixo no seu MYSQL Workbench.
+  Caso queira acompanhar os exemplos na sua maquina, basta executar o SQLScript abaixo no seu MYSQL Workbench.
 
   ```mysql
-  DROP SCHEMA IF EXISTS ComicCenter ;
+DROP SCHEMA IF EXISTS ComicCenter ;
 
 CREATE SCHEMA IF NOT EXISTS ComicCenter ;
 USE ComicCenter ;
@@ -66,8 +63,7 @@ CREATE TABLE IF NOT EXISTS ComicCenter.Telefone (
   PRIMARY KEY (Numero),
     FOREIGN KEY (Cliente_id)
     REFERENCES ComicCenter.Cliente (Cliente_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+  );
 
 CREATE TABLE IF NOT EXISTS ComicCenter.Email (
   Cliente_id INT NOT NULL,
@@ -75,8 +71,7 @@ CREATE TABLE IF NOT EXISTS ComicCenter.Email (
   PRIMARY KEY (Cliente_email),
     FOREIGN KEY (Cliente_id)
     REFERENCES ComicCenter.Cliente (Cliente_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+  );
     
 CREATE TABLE IF NOT EXISTS ComicCenter.Funcionario (
   Funcionario_id INT NOT NULL,
@@ -120,7 +115,6 @@ INSERT INTO ComicCenter.Revista (Revista_id, Titulo, Editora)
          (4, 'X-Men', 'Marvel'),
          (5, 'Homem Aranha', 'Marvel'),
          (6, 'Mulher Maravilha', 'Dc Comics');
-
   ```
 --- 
 &nbsp;
@@ -129,7 +123,7 @@ INSERT INTO ComicCenter.Revista (Revista_id, Titulo, Editora)
 
 ## Situação a qual será aplicado o INNER JOIN entre duas tabelas
 
-Imagine uma situação onde você precisará consultar o telefone de clientes através do nome, e essas informações estão em tabelas separadas em seu banco de dados, da seguinte forma:
+Imagine uma situação onde você precisará consultar o telefone de pessoas clientes através do nome, e essas informações estão em tabelas separadas em seu banco de dados, da seguinte forma:
 
 **Tabela Cliente:** 
 | Cliente_id | Nome               |
@@ -218,7 +212,7 @@ FROM
         INNER JOIN
     Telefone AS T
 ON
-    C.Cliente_id = T.Cliente_id
+    C.Cliente_id = T.Cliente_id;
 ```
 *Usar a primeira letra ou uma abreviação do nome da tabela como alias é muito comum e uma ótima opção*
 
@@ -237,7 +231,7 @@ Obtendo o mesmo resultado:
 
 ## Situação a qual será aplicado o INNER JOIN com mais de duas tabelas
 
-Imagine uma situação onde você precisará consultar o telefone e o email de clientes através do nome, e essas informações estão em 3 tabelas distintas, da seguinte forma:
+Imagine uma situação onde você precisará consultar o telefone e o email de pessoas clientes através do nome, e essas informações estão em 3 tabelas distintas, da seguinte forma:
 
 **Tabela Cliente:** 
 | Cliente_id | Nome               |
@@ -271,7 +265,7 @@ Imagine uma situação onde você precisará consultar o telefone e o email de c
 
 ## Usando o INNER JOIN com mais de duas tabelas
 
-Para unir mais de duas tabalas basta adicionar mais um INNER JOIN depois do ON do INNER JOIN anterior usando a coluna na qual uma das tabelas anteriores relacionem com ela.
+Para usar mais de um INNER JOIN na mesma query, basta adiciona-lo logo depois do primeiro, usando no ON a coluna relacionada a uma coluna de qualquer tabela declarada anteriormente
 
 &nbsp;
 
@@ -306,7 +300,7 @@ Retorando o seguinte resultado:
 
 # LEFT JOIN e RIGHT JOIN
 
-Para entender LEFT JOIN e RIGHT JOIN, imagine um banco de dados com as seguintes tabelas: 
+Para entender LEFT JOIN e RIGHT JOIN, observe as duas tabelas a seguir: 
 
 **Tabela Cliente:** 
 | Cliente_id | Nome               |
@@ -344,7 +338,6 @@ ON
 ```
 &nbsp;
 
-Essa query retorna a seguite tabela:
 
 | Cliente_id | Nome               | Funcionario_id | Nome               |
 | :---------:| :----------------: | :-------------:| :----------------: |
@@ -353,13 +346,15 @@ Essa query retorna a seguite tabela:
 
 &nbsp;
 
+Obeserve que o INNER JOIN retornou apenas as pessoas que estão nas duas tabelas.
+
 ## Situação a qual será aplicado o LEFT JOIN
 
 Agora imagine que você queira que sua consulta retorne os dados de todas as pessoas clientes, sendo pessoa funcionaria ou não, porém caso a pessoa seja funcionaria, você deseja que os dados da tabela Funcionario dessa pessoa sejam exibidos. 
 
 ## Usando o LEFT JOIN
 
-Para essa situação é utilizado o LEFT JOIN, pois ele manterá todos os dados da primeira tabela declarada, mesmo que não existão na segunda tabela, preenchendo os campos faltantes com NULL.  
+Para essa situação é utilizado o LEFT JOIN, pois manterá todos os dados da primeira tabela declarada, mesmo que não existão na segunda tabela, preenchendo os campos faltantes com NULL.  
 *(O posicionamento das colunas não influenciam, apenas a ordem em que as tabelas são declaradas no LEFT JOIN)*
 
 &nbsp;
@@ -427,7 +422,7 @@ ON
 
 ## Situação a qual será aplicado o SELF JOIN
 
-Imagine que no seu banco de dados possui uma tabela chama Revista:
+Para entender melhor o SELF JOIN, utilizaremos a seguinte tabela:
 
 **Tabela Revista:**
 | Revista_id | Titulo           | Editora   |
@@ -439,7 +434,7 @@ Imagine que no seu banco de dados possui uma tabela chama Revista:
 | 5          | Homem Aranha     | Marvel    |
 | 6          | Mulher Maravilha | DC Comics |
 
-Agora imagine que na sua consulta você precisrá ver de uma revista com todas as revistas da mesma editora
+Agora imagine que na sua consulta você precisará exibir todas as revistas da mesma editora para cada revista presente na tabela.
 
 ## Usando o SELF JOIN
 
@@ -484,8 +479,8 @@ WHERE
 
 &nbsp;
 
-Note que os Titulos que repediram foram o do segundo alias(AS) declarado, ou seja, R2. Também poderá perceber que o Titulo também comparou com ele mesmo, isso porque o comportamento da tabela com ela mesma é semelhante a de duas tabelas distintas.
-Para tornar a consulta com uma melhor visualização, você poderá alterar a ordem do alias(AS), utilizar o WHERE para que uma informação não se relacione com ela mesmo.
+Note que os Titulos que repediram foram o do segundo alias(AS) declarado, ou seja, R2. Também poderá perceber que os dados da mesma revistas de comparam consigo mesmo, isso porque o comportamento da tabela no SELF JOIN é semelhante a de duas tabelas distintas.
+Para tornar a consulta com uma melhor visualização, você poderá alterar a ordem do alias(AS), utilizar o WHERE para que uma informação não seja exibida consigo propria.
 
 &nbsp;
 

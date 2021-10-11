@@ -14,8 +14,7 @@ CREATE TABLE IF NOT EXISTS ComicCenter.Telefone (
   PRIMARY KEY (Numero),
     FOREIGN KEY (Cliente_id)
     REFERENCES ComicCenter.Cliente (Cliente_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+  );
 
 CREATE TABLE IF NOT EXISTS ComicCenter.Email (
   Cliente_id INT NOT NULL,
@@ -23,8 +22,7 @@ CREATE TABLE IF NOT EXISTS ComicCenter.Email (
   PRIMARY KEY (Cliente_email),
     FOREIGN KEY (Cliente_id)
     REFERENCES ComicCenter.Cliente (Cliente_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+  );
     
 CREATE TABLE IF NOT EXISTS ComicCenter.Funcionario (
   Funcionario_id INT NOT NULL,
