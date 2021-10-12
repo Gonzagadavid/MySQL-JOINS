@@ -177,3 +177,19 @@ FROM
 GROUP BY S.Specie_Name;
 
 ```
+
+5. Escreva uma query que retornara uma coluna com o nome do Local, nomeie essa coluna como `Local de origem` e uma coluna com a quantidade de personagens que possuem origem desse local, nomeie essa coluna como `Quantidade`.
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    L.Location_Name AS `Local`, COUNT(C.Name) AS `Quantidade`
+FROM
+    `Character` AS C
+        INNER JOIN
+    Location AS L ON C.Origin = L.Location_id
+GROUP BY L.Location_Name
+
+```
+
