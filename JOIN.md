@@ -334,12 +334,13 @@ CREATE TABLE IF NOT EXISTS final_space_db.Character (
 INSERT INTO final_space_db.Location( 
   Location_id,
   Location_Name,
-  Location_Type)
+  Location_Type
+  )
     VALUES
       (1, 'Earth', 'Planet'),
-		  (2, 'Final Space', 'Dimension'),
+      (2, 'Final Space', 'Dimension'),
       (3, 'Tera Con Prime', 'Destroyed planet'),
-		  (4, 'Inner Space', 'Dimension'),
+      (4, 'Inner Space', 'Dimension'),
       (5, 'Yarno', 'Planet'),
       (6, 'Dark Zone', 'Black hole'),
       (7, 'Deathcropolis', 'Gladiatorial Colosseum'),
