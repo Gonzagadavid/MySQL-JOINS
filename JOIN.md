@@ -62,16 +62,14 @@ CREATE TABLE IF NOT EXISTS ComicCenter.Telefone (
   Numero VARCHAR(45) NOT NULL,
   PRIMARY KEY (Numero),
     FOREIGN KEY (Cliente_id)
-    REFERENCES ComicCenter.Cliente (Cliente_id)
-  );
+    REFERENCES ComicCenter.Cliente (Cliente_id));
 
 CREATE TABLE IF NOT EXISTS ComicCenter.Email (
   Cliente_id INT NOT NULL,
   Cliente_email VARCHAR(45) NOT NULL,
   PRIMARY KEY (Cliente_email),
     FOREIGN KEY (Cliente_id)
-    REFERENCES ComicCenter.Cliente (Cliente_id)
-  );
+    REFERENCES ComicCenter.Cliente (Cliente_id));
     
 CREATE TABLE IF NOT EXISTS ComicCenter.Funcionario (
   Funcionario_id INT NOT NULL,
