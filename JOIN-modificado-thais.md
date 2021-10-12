@@ -380,7 +380,7 @@ Agora, imagine que você precise de uma consulta que retorne os dados de todas a
 
 ## Usando o LEFT JOIN
 
-Para essa situação é utilizado o LEFT JOIN, pois manterá TODOS os dados da **primeira tabela** declarada, mesmo que algum dado não exista na segunda tabela, sendo preenchido com a palavra NULL.  
+Para essa situação é utilizado o LEFT JOIN, pois manterá TODOS os dados da **primeira tabela** declarada, mesmo que não exista na segunda tabela, sendo preenchido com a palavra NULL.  
 *(O posicionamento das colunas não influenciam, apenas a ordem em que as tabelas são declaradas no LEFT JOIN)*
 
 &nbsp;

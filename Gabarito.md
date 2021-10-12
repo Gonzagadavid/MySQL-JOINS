@@ -132,3 +132,34 @@ FROM
     Specie AS S ON C.Specie = S.Specie_id;
 
 ```
+*Note que para ter relação entre as colunas das tabelas os nomes não precisam ser iguais*
+
+2. Escreva uma querie que retorne uma coluna com os nomes dos personagens e uma coluna com o nome do seu local de origem.
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    C.Name, L.Location_Name
+FROM
+    `Character` AS C
+        INNER JOIN
+    Location AS L ON C.Origin = L.Location_id;
+
+```
+
+3. Em uma query retorne o nome do personagem, sua especie e o lugar de origem.
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    C.Name, S.Specie_Name, L.Location_name
+FROM
+    `Character` AS C
+        INNER JOIN
+    Specie AS S ON C.Specie = S.Specie_id
+        INNER JOIN
+    Location AS L ON C.Origin = L.Location_id;
+
+```
