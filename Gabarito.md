@@ -118,7 +118,7 @@ INSERT INTO final_space_db.Character(
 
 # INNER JOIN
 
-1. Escreva uma query que retorne uma coluna com o nome dos personagem e uma coluna com o nome da sua espécie.  
+**1** - Escreva uma query que retorne uma coluna com o nome dos personagem e uma coluna com o nome da sua espécie.  
 *Dica: Quando queremos usar uma palavra reservada do mysql para referenciar uma tabela, podemos usar a crase, como no caso desse banco que está sendo usado para os exercicios de fixação, ele possui uma tabela com o nome de Character, porém CHARACTER é uma palavra reservada, então usamos* &#96;*Character*&#96; *para referenciar a tabela*
 
 ```mysql
@@ -134,7 +134,7 @@ FROM
 ```
 *Note que para ter relação entre as colunas das tabelas os nomes não precisam ser iguais*
 
-2. Escreva uma querie que retorne uma coluna com os nomes dos personagens e uma coluna com o nome do seu local de origem.
+**2** - Escreva uma querie que retorne uma coluna com os nomes dos personagens e uma coluna com o nome do seu local de origem.
 
 ```mysql
 USE final_space_db;
@@ -148,7 +148,7 @@ FROM
 
 ```
 
-3. Em uma query retorne o nome do personagem, sua espécie e o lugar de origem.
+**3** - Em uma query retorne o nome do personagem, sua espécie e o lugar de origem.
 
 ```mysql
 USE final_space_db;
@@ -163,7 +163,7 @@ FROM
     Location AS L ON C.Origin = L.Location_id;
 
 ```
-4. Escreva uma query que retornara uma coluna com o nome da espécie, nomeie essa coluna como `Especie` e uma coluna com a quantidade de personagens daquela espécie, nomeie essa coluna como `Quantidade`.
+**4** - Escreva uma query que retornara uma coluna com o nome da espécie, nomeie essa coluna como `Especie` e uma coluna com a quantidade de personagens daquela espécie, nomeie essa coluna como `Quantidade`, organize a lista de forma ascendente pela a quantidade.
 
 ```mysql
   USE final_space_db;
@@ -174,11 +174,11 @@ FROM
     `Character` AS C
         INNER JOIN
     Specie AS S ON C.Specie = S.Specie_id
-GROUP BY S.Specie_Name;
-
+GROUP BY S.Specie_Name
+ORDER BY Quantidade;
 ```
 
-5. Escreva uma query que retornara uma coluna com o nome do Local, nomeie essa coluna como `Local de origem` e uma coluna com a quantidade de personagens que possuem origem desse local, nomeie essa coluna como `Quantidade`.
+**5** - Escreva uma query que retornara uma coluna com o nome do Local, nomeie essa coluna como `Local de origem` e uma coluna com a quantidade de personagens que possuem origem desse local, nomeie essa coluna como `Quantidade`, organize a lista de forma  decrescente pela a quantidade.
 
 ```mysql
 USE final_space_db;
@@ -190,6 +190,45 @@ FROM
         INNER JOIN
     Location AS L ON C.Origin = L.Location_id
 GROUP BY L.Location_Name
+ORDER BY Quantidade DESC;
+
+```
+**6** - Escreva uma query que retorne os nomes dos personagens que tem como local de origem 'Earth', organize os nomes em ordem alfabetica.
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    C.Name
+FROM
+    `Character` AS C
+        INNER JOIN
+    Location AS L ON C.Origin = L.Location_id
+WHERE
+    L.Location_Name = 'Earth'
+ORDER BY C.Name;
+
+```
+**7** - Escreva uma query que retorne o nome e o local de origem, de todos personagens que são da espécie 'Ventrexian', ordene os nome de forma alfabética-invertida.
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    C.Name, L.Location_name
+FROM
+    `Character` AS C
+        INNER JOIN
+    Location AS L ON C.Origin = L.Location_id
+        INNER JOIN
+    Specie AS S ON C.Specie = S.Specie_id
+WHERE
+    S.Specie_Name = 'Ventrexian'
+ORDER BY C.Name DESC;
 
 ```
 
+---
+&nbsp;
+
+# LEFT JOIN e RIGHT JOIN
