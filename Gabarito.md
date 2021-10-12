@@ -270,7 +270,7 @@ FROM
         LEFT JOIN
     Specie AS S ON C.Specie = S.Specie_id;
 ```
-**4** - Escreva uma query que retorne o nome do personagem e o nome de todos locais de origem, mesmo se houver personagem com origem desse local.
+**4** - Escreva uma query que retorne o nome do personagem e o nome de todos locais de origem, mesmo se não houver personagem com origem desse local.
 
 ```mysql
 USE final_space_db;
@@ -284,15 +284,31 @@ FROM
 
 ```
 
-**5** - Escreva uma query e exiba os nomes de todos os personagem e sua espécie, se o personagem não tiver espécie definida o campo da espécie deverá mostrar 'Unknown', nomeie a coluna com o nome da especie de 'Specie'.
+**5** - Escreva uma query e exiba os nomes de todos os personagem e sua espécie, se o personagem não tiver espécie definida o campo da espécie deverá mostrar 'Unknown', nomeie a coluna com o nome da especie de 'Specie', e a coluna com os nomes dos personagens de 'Character'.
 
 ```mysql
 USE final_space_db;
 
 SELECT 
-    C.Name, IFNULL(S.Specie_Name, 'Unknown') AS 'Specie'
+    C.Name AS 'Character',
+    IFNULL(S.Specie_Name, 'Unknown') AS 'Specie'
 FROM
     `Character` AS C
         LEFT JOIN
     Specie AS S ON C.Specie = S.Specie_id;
+
+```
+**6** - Escreva uma query que retorne o nome do personagem em uma coluna chamada 'Character' e o nome de todos locais de origem, se não houver personagem com origem do local o campo que apresentaria no nome do persongem deve mostrar 'Unknown', nomeie a coluna com nome do local de 'Local'.
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    IFNULL(C.Name, 'Unknown') AS 'Character',
+    L.Location_Name AS 'Local'
+FROM
+    `Character` AS C
+        RIGHT JOIN
+    Location AS L ON C.Origin = L.Location_id;
+
 ```
