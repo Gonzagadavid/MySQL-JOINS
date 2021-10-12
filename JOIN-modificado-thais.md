@@ -23,10 +23,15 @@
 
 Hoje, você aprenderá a utilizar os principais **Joins** no **MySQL**, associando **duas ou mais tabelas**  que tenham **dados relacionados** entre si, inclusive da **mesma tabela**, usando uma **determinada condição** de organização.  *Vamos lá!* :rocket:
 
+
+
+
+
+
+
 ---
 
 ## Você será capaz de:  
-
 - Escrever queries combinando informações de duas tabelas utilizando o INNER JOIN;
 - Escrever queries combinando duas tabelas e preservando todas as informções de uma delas, utilizando LEFT JOIN ou RIGHT JOIN;
 - Escrever queries utilizando os dados da mesma tabela como se fosse duas tabelas distintas;
@@ -38,17 +43,18 @@ Hoje, você aprenderá a utilizar os principais **Joins** no **MySQL**, associan
 
 O **banco de dados relacional** armazena diversas tabelas que **relaciona os dados entre si** e utiliza indicadores como referência. Sendo assim, as informações da qual você precisará para sua consulta, poderá estar em mais de uma tabela, surgindo a necessidade de unir duas ou mais tabelas em uma mesma query.
 
---- 
+---
 &nbsp;
 
 # JOIN
-
 
   O JOIN  tem um grande papel no banco de dados relacionais, sendo utilizado no SQL para trabalhar com dados de duas tabelas ou mais.
 
 Quer acompanhar os exemplos na sua maquina? 
 
 Execute o SQLScript abaixo no seu MYSQL Workbench!
+
+
 
   ```mysql
 DROP SCHEMA IF EXISTS ComicCenter ;
@@ -66,14 +72,16 @@ CREATE TABLE IF NOT EXISTS ComicCenter.Telefone (
   Numero VARCHAR(45) NOT NULL,
   PRIMARY KEY (Numero),
     FOREIGN KEY (Cliente_id)
-    REFERENCES ComicCenter.Cliente (Cliente_id));
+    REFERENCES ComicCenter.Cliente (Cliente_id)
+  );
 
 CREATE TABLE IF NOT EXISTS ComicCenter.Email (
   Cliente_id INT NOT NULL,
   Cliente_email VARCHAR(45) NOT NULL,
   PRIMARY KEY (Cliente_email),
     FOREIGN KEY (Cliente_id)
-    REFERENCES ComicCenter.Cliente (Cliente_id));
+    REFERENCES ComicCenter.Cliente (Cliente_id)
+  );
     
 CREATE TABLE IF NOT EXISTS ComicCenter.Funcionario (
   Funcionario_id INT NOT NULL,
@@ -118,16 +126,19 @@ INSERT INTO ComicCenter.Revista (Revista_id, Titulo, Editora)
          (5, 'Homem Aranha', 'Marvel'),
          (6, 'Mulher Maravilha', 'Dc Comics');
   ```
---- 
+
+
+---
 &nbsp;
 
 # INNER JOIN
 
-## Situação a qual será aplicado o INNER JOIN entre duas tabelas
+## 1) INNER JOIN entre DUAS tabelas
 
 Imagine que você precisará consultar o telefone de pessoas clientes através do nome e essas informações(nome e telefone) estão em tabelas diferentes em seu banco de dados, dessa forma:
 
 **Tabela Cliente:** 
+
 | Cliente_id | Nome               |
 | :---------:| :----------------: |
 | 1          | Sheldon Cooper     |
@@ -138,6 +149,7 @@ Imagine que você precisará consultar o telefone de pessoas clientes através d
 &nbsp;
 
 **Tabela Telefone:**
+
 | Cliente_id | Numero           |
 | :---------:| :--------------: |
 | 1          | (19) 16044-3249  |
@@ -165,7 +177,6 @@ Para evitar isso, informe da seguinte forma a qual tabela essa coluna pertence:
 &nbsp;
 
 Dessa forma, o ínicio da sua query, onde é informado as colunas a serem exibidas, ficará dessa forma:  
-
 ```mysql
   SELECT 
     Cliente.Cliente_id, Cliente.Nome, Telefone.Numero
@@ -190,7 +201,6 @@ FROM
     Telefone
 ON
     Cliente.Cliente_id = Telefone.Cliente_id;
-
 ```
 &nbsp;
 
@@ -236,11 +246,12 @@ Obtendo o mesmo resultado:
 
 &nbsp;
 
-## Situação a qual será aplicado o INNER JOIN com mais de duas tabelas
+## 2) INNER JOIN com MAIS de duas tabelas
 
 Imagine que você precisará consultar o telefone e o e-mail de pessoas clientes através do nome, e essas informações estão em três tabelas distintas da seguinte forma:
 
 **Tabela Cliente:** 
+
 | Cliente_id | Nome               |
 | :---------:| :----------------: |
 | 1          | Sheldon Cooper     |
@@ -251,6 +262,7 @@ Imagine que você precisará consultar o telefone e o e-mail de pessoas clientes
 &nbsp;
 
 **Tabela Telefone:**
+
 | Cliente_id | Numero           |
 | :---------:| :--------------: |
 | 1          | (19) 16044-3249  |
@@ -261,6 +273,7 @@ Imagine que você precisará consultar o telefone e o e-mail de pessoas clientes
 &nbsp;
 
 **Tabela Email:**
+
 | Cliente_id | Cliente_email             |
 | :---------:| :-----------------------: |
 | 1          | protoncooper@scemail.com  |
@@ -290,11 +303,10 @@ ON
             INNER JOIN
     Email AS E
 ON E.Cliente_id = C.Cliente_id;
-
 ```
 &nbsp;
 
-Retorando o seguinte resultado:
+Retornando o seguinte resultado:
 
 | Cliente_id | Nome               | Numero           | Cliente_email             |
 | :---------:| :----------------: | :--------------: | :-----------------------: |
@@ -303,130 +315,17 @@ Retorando o seguinte resultado:
 | 3          | Leonard Hofstadter | (23) 57692-8688  | luckyman@scemail.com      |
 | 4          | Bernadette Maryann | (62) 19832-5762  | candybern@mbmail.com      |
 
----
-&nbsp;
 
-## Exercícios de Fixação
-
-Para a resolver os exercícios de fixação, será usado o banco de dados final_space_db, execute o script abaixo no seu MySQL Workbench:
-
-```mysql
-DROP SCHEMA IF EXISTS final_space_db ;
-
-CREATE SCHEMA IF NOT EXISTS final_space_db ;
-USE final_space_db ;
-
-CREATE TABLE IF NOT EXISTS final_space_db.Location (
-    Location_id INT NOT NULL AUTO_INCREMENT,
-    Location_Name VARCHAR(45) NOT NULL,
-    Location_Type VARCHAR(45) NOT NULL,
-    PRIMARY KEY (Location_id)
-);
-
-CREATE TABLE IF NOT EXISTS final_space_db.Specie (
-    Specie_id INT NOT NULL AUTO_INCREMENT,
-    Specie_Name VARCHAR(45) NOT NULL,
-    PRIMARY KEY (Specie_id)
-);
-
-CREATE TABLE IF NOT EXISTS final_space_db.Character (
-    Character_id INT NOT NULL AUTO_INCREMENT,
-    Name VARCHAR(45) NOT NULL,
-    Origin INT NULL,
-    Specie INT NULL,
-    PRIMARY KEY (Character_id),
-    FOREIGN KEY (Origin)
-        REFERENCES final_space_db.Location (Location_id),
-    FOREIGN KEY (Specie)
-        REFERENCES final_space_db.Specie (Specie_id)
-);
-
-INSERT INTO final_space_db.Location( 
-  Location_id,
-  Location_Name,
-  Location_Type
-  )
-    VALUES
-      (1, 'Earth', 'Planet'),
-      (2, 'Final Space', 'Dimension'),
-      (3, 'Tera Con Prime', 'Destroyed planet'),
-      (4, 'Inner Space', 'Dimension'),
-      (5, 'Yarno', 'Planet'),
-      (6, 'Dark Zone', 'Black hole'),
-      (7, 'Deathcropolis', 'Gladiatorial Colosseum'),
-      (8, 'Lazarus Trap', 'Trap'),
-      (9, 'The Order of the Twelve', 'Temple'),
-      (10, 'Serepentis', 'Planet'),
-      (11, 'Ventrexia', 'Planet'),
-      (12, 'Invictus Prison', 'Dimension'),
-      (13, 'Tryvuulian', 'Planet'),
-      (14, 'Hatched', 'Planet');
-    
-INSERT INTO final_space_db.Specie(Specie_id, Specie_Name)
-  VALUES
-    (1, 'Human'),
-    (2, 'Ventrexian'),
-    (3, 'Robot'),
-    (4, 'Serepentian'),
-    (5, 'Tryvuulian'),
-    (6, 'Artificial Intelligence'),
-    (7, 'Titan'),
-    (8, 'Cosmic Entity'),
-    (9, 'Energy being'),
-    (10, 'Alien'),
-    (11, 'Hooblot'),
-    (12, 'Cyborg'),
-    (13, 'Fire Snake'),
-    (14, 'Tiger Tiger');
-    
-INSERT INTO final_space_db.Character(
-  Character_id,
-  Name,
-  Origin,
-  Specie
-)
-  VALUES
-    (1, 'Gary Goodspeed', 1, 1),
-    (2, 'Mooncake', NULL, NULL),
-    (3, 'Quinn Ergon', 1, 1),
-    (4, 'Little Cato', 11, 2),
-    (5, 'Avocato', 11, 2),
-    (6, 'KVN', 1, 3),
-    (7, 'Ash Graven', 10, 4),
-    (8, 'Fox', 13, 5),
-    (9, 'H.U.E', NULL, 6),
-    (10, 'Tribore Menendez',14, NULL),
-    (11, 'Clarence', NULL, NULL),
-    (12, 'Biskit', NULL, 14),
-    (13, 'Quatronostro Menendez', 14, NULL),
-    (14, 'Lord Commander', NULL, NULL),
-    (15, 'Sheryl Goodspeed', 1, 1),
-    (16, 'Bolo', 2, 7),
-    (17, 'Invictus', 2, 7),
-    (18, 'John Goodspeed', 1, 1),
-    (19, 'A.V.A', NULL, 6),
-    (20, 'Evra', 2, 9),
-    (21, 'Queen of Ventrexia', 11, 2),
-    (22, 'King of Ventrexia', 11, 2),
-    (23, 'Mega-KVN', 1, 3),
-    (24, 'Melanie Dewinter',3, 11),
-    (25, 'Harp Graven', 10, 4),
-    (26, 'Shannon Thunder', 1, 1),
-    (27, 'David Dewinter', 3, 11),
-    (28, 'Meowlapeño', 3, 2),
-    (29, 'Fraskenhaur', NULL, 10),
-    (30, 'Oreskis"',2, 7 );
-    
-```
 
 ---
 &nbsp;
 
-# LEFT JOIN e RIGHT JOIN
+# 3) LEFT JOIN e RIGHT JOIN
 
 Para entender LEFT JOIN e RIGHT JOIN, observe as duas tabelas a seguir: 
 
 **Tabela Cliente:** 
+
 | Cliente_id | Nome               |
 | :---------:| :----------------: |
 | 1          | Sheldon Cooper     |
@@ -437,6 +336,7 @@ Para entender LEFT JOIN e RIGHT JOIN, observe as duas tabelas a seguir:
 
 
 **Tabela Funcionario:** 
+
 | Funcionario_id | Nome               |
 | :-------------:| :----------------: |
 | 1              | Stuart Bloom       |
@@ -461,7 +361,6 @@ FROM
         Funcionario AS F
 ON
         C.Nome = F.Nome;
-
 ```
 &nbsp;
 
@@ -473,15 +372,15 @@ ON
 
 &nbsp;
 
-Obeserve que o INNER JOIN retornou apenas as pessoas que estão nas duas tabelas.
+Observe que o INNER JOIN retornou apenas as pessoas presentes nas duas tabelas.
 
-## Situação a qual será aplicado o LEFT JOIN
+## Aplicação de LEFT JOIN
 
-Agora, imagine que você precise de uma consulta que retorne os dados de todas as pessoas clientes, pessoa funcionaria ou não.  Caso seja pessoa funcionaria, você deseja que os dados da tabela Funcionario dessa pessoa sejam exibidos.  
+Agora, imagine que você precise de uma consulta que retorne os dados de todas as pessoas clientes, pessoa funcionaria ou não.  Caso seja pessoa funcionaria, você deseja que os dados da tabela Funcionario dessa pessoa sejam exibidos. 
 
 ## Usando o LEFT JOIN
 
-Para essa situação é utilizado o LEFT JOIN, pois manterá TODOS os dados da **primeira tabela** declarada, mesmo que não exista na segunda tabela, sendo preenchido com a palavra NULL.  
+Para essa situação é utilizado o LEFT JOIN, pois manterá TODOS os dados da **primeira tabela** declarada, mesmo que algum dado não exista na segunda tabela, sendo preenchido com a palavra NULL.  
 *(O posicionamento das colunas não influenciam, apenas a ordem em que as tabelas são declaradas no LEFT JOIN)*
 
 &nbsp;
@@ -497,7 +396,6 @@ FROM
         Funcionario AS F
 ON
         C.Nome = F.Nome;
-
 ```
 &nbsp;
 
@@ -510,7 +408,7 @@ ON
 
 &nbsp;
 
-## Situação a qual será aplicado o RIGHT JOIN
+## Aplicação de RIGHT JOIN
 
 Imagine que você queira que sua consulta retorne os dados de todas as pessoas funcionarias, pessoa cliente ou não. Caso seja pessoa cliente, você deseja que os dados da tabela Ciente dessa pessoa sejam exibidos.
 
@@ -532,7 +430,6 @@ FROM
         Funcionario AS F
 ON
         C.Nome = F.Nome;
-
 ```
 
 &nbsp;
@@ -547,7 +444,7 @@ ON
 ---
 &nbsp;
 
-# SELF JOIN
+# 4)SELF JOIN
 
 ## Situação a qual será aplicado o SELF JOIN
 
@@ -582,7 +479,6 @@ FROM
     Revista AS R2
 WHERE
     R1.Editora = R2.Editora;
-
 ```
 &nbsp;
 
@@ -609,7 +505,7 @@ WHERE
 
 &nbsp;
 
-Note que os Titulos que repediram foram o do segundo alias(AS) declarado, ou seja, R2. Também poderá perceber que os dados da mesma revistas se comparam consigo mesmo, isso porque o comportamento da tabela no SELF JOIN é semelhante a de duas tabelas distintas.
+Note que os Titulos que repetiram foram o do segundo alias(AS) declarado, ou seja, R2. Também poderá perceber que os dados da mesma revista de comparam consigo mesmo, isso porque o comportamento da tabela no SELF JOIN é semelhante a de duas tabelas distintas.
 Para tornar a consulta com uma melhor visualização, você poderá alterar a ordem do alias(AS), utilizar o WHERE para que uma informação não seja exibida consigo propria.
 
 &nbsp;
