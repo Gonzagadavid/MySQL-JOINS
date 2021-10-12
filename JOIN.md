@@ -298,7 +298,7 @@ Retorando o seguinte resultado:
 
 ## Exercícios de Fixação
 
-Para a resolver esses e os próximos exercícios de fixação, será usado o banco de dados final_space_db, execute o script abaixo no seu MySQL Workbench:
+Para a resolver os exercícios de fixação, será usado o banco de dados final_space_db, execute o script abaixo no seu MySQL Workbench:
 
 ```mysql
 DROP SCHEMA IF EXISTS final_space_db ;
