@@ -227,8 +227,21 @@ WHERE
 ORDER BY C.Name DESC;
 
 ```
-
 ---
 &nbsp;
 
 # LEFT JOIN e RIGHT JOIN
+
+**1** - Escreva uma query e exiba os nomes de todos os personagem e sua espécie, o nome de todos os personagens deve aparecer mesmo se não ter espécie definida.
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    C.Name, S.Specie_Name
+FROM
+    `Character` AS C
+        LEFT JOIN
+    Specie AS S ON C.Specie = S.Specie_id;
+
+```
