@@ -258,3 +258,16 @@ FROM
     Location AS L ON C.Origin = L.Location_id;
 
 ```
+
+**3** - Escreva uma query que mostre os nomes dos personagem e o nome de todas as espécies, mesmo as que não possuem personagem com aquela especie.
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    C.Name, S.Specie_Name
+FROM
+    `Character` AS C
+        LEFT JOIN
+    Specie AS S ON C.Specie = S.Specie_id;
+```
