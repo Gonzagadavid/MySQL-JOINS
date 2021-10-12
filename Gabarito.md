@@ -258,8 +258,7 @@ FROM
     Location AS L ON C.Origin = L.Location_id;
 
 ```
-
-**3** - Escreva uma query que mostre os nomes dos personagem e o nome de todas as espécies, mesmo as que não possuem personagem com aquela especie.
+**3** - Escreva uma query que mostre o nome do personagem e o nome de todas as espécies, mesmo as que não possuem personagem com aquela especie.
 
 ```mysql
 USE final_space_db;
@@ -270,4 +269,17 @@ FROM
     `Character` AS C
         LEFT JOIN
     Specie AS S ON C.Specie = S.Specie_id;
+```
+**4** - Escreva uma query que retorne o nome do personagem e o nome de todos locais de origem, mesmo se houver personagem com origem desse local.
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    C.Name, L.Location_Name
+FROM
+    `Character` AS C
+        RIGHT JOIN
+    Location AS L ON C.Origin = L.Location_id;
+
 ```
