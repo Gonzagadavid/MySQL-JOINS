@@ -118,7 +118,7 @@ INSERT INTO final_space_db.Character(
 
 # INNER JOIN
 
-1. Escreva uma query que retorne uma coluna com o nome dos personagem e uma coluna com o nome da sua especie.  
+1. Escreva uma query que retorne uma coluna com o nome dos personagem e uma coluna com o nome da sua espécie.  
 *Dica: Quando queremos usar uma palavra reservada do mysql para referenciar uma tabela, podemos usar a crase, como no caso desse banco que está sendo usado para os exercicios de fixação, ele possui uma tabela com o nome de Character, porém CHARACTER é uma palavra reservada, então usamos* &#96;*Character*&#96; *para referenciar a tabela*
 
 ```mysql
@@ -148,7 +148,7 @@ FROM
 
 ```
 
-3. Em uma query retorne o nome do personagem, sua especie e o lugar de origem.
+3. Em uma query retorne o nome do personagem, sua espécie e o lugar de origem.
 
 ```mysql
 USE final_space_db;
@@ -161,5 +161,19 @@ FROM
     Specie AS S ON C.Specie = S.Specie_id
         INNER JOIN
     Location AS L ON C.Origin = L.Location_id;
+
+```
+4. Escreva uma query que retornara uma coluna com o nome da espécie, nomeie essa coluna como `Especie` e uma coluna com a quantidade de personagens daquela espécie, nomeie essa coluna como `Quantidade`.
+
+```mysql
+  USE final_space_db;
+
+SELECT 
+    S.Specie_Name AS `Especie`, COUNT(C.Name) AS `Quantidade`
+FROM
+    `Character` AS C
+        INNER JOIN
+    Specie AS S ON C.Specie = S.Specie_id
+GROUP BY S.Specie_Name;
 
 ```
