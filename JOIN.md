@@ -544,6 +544,64 @@ ON
 | 3          | Leonard Hofstadter | 3              | Leonard Hofstadter |
 | NULL       | NULL               | 4              | Raj Koothrappali   |
 
+&nbsp;
+
+## Usando IFNULL
+
+Caso voce queira substituir os valores de NULL por outro valor, basta utilizar a função IFNULL, passando a coluna como primeiro parametro e o valor a ser atribuido para os campos re retornarem NULL, como nos exmplos a seguir:  
+
+### Utilizando IFNULL no LEFT JOIN
+
+```mysql
+USE ComicCenter;
+
+SELECT 
+    C.Cliente_id,
+    C.Nome,
+    IFNULL(F.Funcionario_id, 'inexistente') AS Funcionario_id,
+    IFNULL(F.Nome, 'não funcionario') as Nome
+FROM
+    Cliente AS C
+        LEFT JOIN
+    Funcionario AS F ON C.Nome = F.Nome;
+
+```
+&nbsp;
+
+| Cliente_id | Nome               | Funcionario_id | Nome               |
+| :---------:| :----------------: | :-------------:| :----------------: |
+| 1          | Sheldon Cooper     | 2              | Sheldon Cooper     |
+| 2          | Amy Farrah Fowler  | inexistente    | não funcionario    |
+| 3          | Leonard Hofstadter | 3              | Leonard Hofstadter |
+| 4          | Bernadette Maryann | inexistente    | não funcionario    |
+
+&nbsp;
+
+### Utilizando IFNULL no RIGHT JOIN
+
+```mysql
+USE ComicCenter;
+
+SELECT 
+    IFNULL(C.Cliente_id, 'inexistente') AS Cliente_id,
+    IFNULL(C.Nome, 'não cliente') AS Nome,
+    F.Funcionario_id,
+    F.Nome
+FROM
+    Cliente AS C
+        RIGHT JOIN
+    Funcionario AS F ON C.Nome = F.Nome;
+
+```
+&nbsp;
+
+| Cliente_id  | Nome               | Funcionario_id | Nome               |
+| :----------:| :----------------: | :-------------:| :----------------: |
+| inexistente | não cliente        | 1              | Stuart Bloom       |
+| 1           | Amy Farrah Fowler  | 2              | Sheldon Cooper     |
+| 3           | Leonard Hofstadter | 3              | Leonard Hofstadter |
+| inexistente | não cliente        | 4              | Raj Koothrappali   |
+
 ---
 &nbsp;
 

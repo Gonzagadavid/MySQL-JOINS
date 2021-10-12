@@ -283,3 +283,16 @@ FROM
     Location AS L ON C.Origin = L.Location_id;
 
 ```
+
+**5** - Escreva uma query e exiba os nomes de todos os personagem e sua espécie, se o personagem não tiver espécie definida o campo da espécie deverá mostrar 'Unknown', nomeie a coluna com o nome da especie de 'Specie'.
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    C.Name, IFNULL(S.Specie_Name, 'Unknown') AS 'Specie'
+FROM
+    `Character` AS C
+        LEFT JOIN
+    Specie AS S ON C.Specie = S.Specie_id;
+```
