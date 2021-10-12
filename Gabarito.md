@@ -245,3 +245,16 @@ FROM
     Specie AS S ON C.Specie = S.Specie_id;
 
 ```
+**2** - Escreva uma query e exiba os nomes de todos os personagem e seu local de origem, o nome de todos os personagens deve aparecer mesmo se não ter local de origem definido.
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    C.Name, L.Location_Name
+FROM
+    `Character` AS C
+        LEFT JOIN
+    Location AS L ON C.Origin = L.Location_id;
+
+```
