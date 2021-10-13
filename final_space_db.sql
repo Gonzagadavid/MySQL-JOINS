@@ -5,26 +5,29 @@ CREATE SCHEMA IF NOT EXISTS final_space_db ;
 USE final_space_db ;
 
 CREATE TABLE IF NOT EXISTS final_space_db.Location (
-  Location_id INT NOT NULL AUTO_INCREMENT,
-  Location_Name VARCHAR(45) NOT NULL,
-  Location_Type VARCHAR(45) NOT NULL,
-  PRIMARY KEY (Location_id));
+    Location_id INT NOT NULL AUTO_INCREMENT,
+    Location_Name VARCHAR(45) NOT NULL,
+    Location_Type VARCHAR(45) NOT NULL,
+    PRIMARY KEY (Location_id)
+);
 
 CREATE TABLE IF NOT EXISTS final_space_db.Specie (
-  Specie_id INT NOT NULL AUTO_INCREMENT,
-  Specie_Name VARCHAR(45) NOT NULL,
-  PRIMARY KEY (Specie_id));
+    Specie_id INT NOT NULL AUTO_INCREMENT,
+    Specie_Name VARCHAR(45) NOT NULL,
+    PRIMARY KEY (Specie_id)
+);
 
 CREATE TABLE IF NOT EXISTS final_space_db.Character (
-  Character_id INT NOT NULL AUTO_INCREMENT,
-  Name VARCHAR(45) NOT NULL,
-  Origin INT NULL,
-  Specie INT NULL,
-  PRIMARY KEY (Character_id),
+    Character_id INT NOT NULL AUTO_INCREMENT,
+    Name VARCHAR(45) NOT NULL,
+    Origin INT NULL,
+    Specie INT NULL,
+    PRIMARY KEY (Character_id),
     FOREIGN KEY (Origin)
-    REFERENCES final_space_db.Location (Location_id),
+        REFERENCES final_space_db.Location (Location_id),
     FOREIGN KEY (Specie)
-    REFERENCES final_space_db.Specie (Specie_id));
+        REFERENCES final_space_db.Specie (Specie_id)
+);
 
 INSERT INTO final_space_db.Location( 
   Location_id,
