@@ -134,6 +134,8 @@ FROM
 ```
 *Note que para ter relação entre as colunas das tabelas os nomes não precisam ser iguais*
 
+&nbsp;
+
 **2** - Escreva uma querie que retorne uma coluna com os nomes dos personagens e uma coluna com o nome do seu local de origem.
 
 ```mysql
@@ -147,6 +149,7 @@ FROM
     Location AS L ON C.Origin = L.Location_id;
 
 ```
+&nbsp;
 
 **3** - Em uma query retorne o nome do personagem, sua espécie e o lugar de origem.
 
@@ -163,6 +166,8 @@ FROM
     Location AS L ON C.Origin = L.Location_id;
 
 ```
+&nbsp;
+
 **4** - Escreva uma query que retornara uma coluna com o nome da espécie, nomeie essa coluna como `Especie` e uma coluna com a quantidade de personagens daquela espécie, nomeie essa coluna como `Quantidade`, organize a lista de forma ascendente pela a quantidade.
 
 ```mysql
@@ -177,6 +182,7 @@ FROM
 GROUP BY S.Specie_Name
 ORDER BY Quantidade;
 ```
+&nbsp;
 
 **5** - Escreva uma query que retornara uma coluna com o nome do Local, nomeie essa coluna como `Local de origem` e uma coluna com a quantidade de personagens que possuem origem desse local, nomeie essa coluna como `Quantidade`, organize a lista de forma  decrescente pela a quantidade.
 
@@ -193,6 +199,8 @@ GROUP BY L.Location_Name
 ORDER BY Quantidade DESC;
 
 ```
+&nbsp;
+
 **6** - Escreva uma query que retorne os nomes dos personagens que tem como local de origem 'Earth', organize os nomes em ordem alfabetica.
 
 ```mysql
@@ -209,6 +217,8 @@ WHERE
 ORDER BY C.Name;
 
 ```
+&nbsp;
+
 **7** - Escreva uma query que retorne o nome e o local de origem, de todos personagens que são da espécie 'Ventrexian', ordene os nome de forma alfabética-invertida.
 
 ```mysql
@@ -245,6 +255,8 @@ FROM
     Specie AS S ON C.Specie = S.Specie_id;
 
 ```
+&nbsp;
+
 **2** - Escreva uma query e exiba os nomes de todos os personagem e seu local de origem, o nome de todos os personagens deve aparecer mesmo se não ter local de origem definido.
 
 ```mysql
@@ -269,7 +281,10 @@ FROM
     `Character` AS C
         LEFT JOIN
     Specie AS S ON C.Specie = S.Specie_id;
+
 ```
+&nbsp;
+
 **4** - Escreva uma query que retorne o nome do personagem e o nome de todos locais de origem, mesmo se não houver personagem com origem desse local.
 
 ```mysql
@@ -283,6 +298,7 @@ FROM
     Location AS L ON C.Origin = L.Location_id;
 
 ```
+&nbsp;
 
 **5** - Escreva uma query e exiba os nomes de todos os personagem e sua espécie, se o personagem não tiver espécie definida o campo da espécie deverá mostrar 'Unknown', nomeie a coluna com o nome da especie de 'Specie', e a coluna com os nomes dos personagens de 'Character'.
 
@@ -298,6 +314,8 @@ FROM
     Specie AS S ON C.Specie = S.Specie_id;
 
 ```
+&nbsp;
+
 **6** - Escreva uma query que retorne o nome do personagem em uma coluna chamada 'Character' e o nome de todos locais de origem, se não houver personagem com origem do local o campo que apresentaria no nome do persongem deve mostrar 'Unknown', nomeie a coluna com nome do local de 'Local'.
 
 ```mysql
@@ -331,8 +349,9 @@ WHERE
     C1.Origin = C2.Origin;
 
 ```
+&nbsp;
 
-**2** - Escreva uma query que exiba os nomes dos personagens em uma coluna e os nomes dos personagens com o mesmo local de origem na coluna ao lado, sem que o nome do personagem aparece duas vezes na mesma linha;
+**2** - Escreva uma query que exiba os nomes dos personagens em uma coluna e os nomes dos personagens com o mesmo local de origem na coluna ao lado, sem que o nome do personagem aparece duas vezes na mesma linha.
 
 ```mysql
 USE final_space_db;
@@ -343,9 +362,12 @@ FROM
     `Character` AS C1,
     `Character` AS C2
 WHERE
-    C1.Origin = C2.Origin AND C1.Name <> C2.Name;
+    C1.Origin = C2.Origin
+        AND C1.Name <> C2.Name;
 
 ```
+&nbsp;
+
 **3** - Escreva uma query que exiba os nomes dos personagens em uma coluna e os nomes dos personagens das mesma especie na coluna ao lado.
 
 ```mysql
@@ -358,5 +380,22 @@ FROM
     `Character` AS C2
 WHERE
     C1.Specie = C2.Specie;
+
+```
+&nbsp;
+
+**4** - Escreva uma query que exiba os nomes dos personagens em uma coluna e os nomes dos personagens das mesma especie na coluna ao lado,  sem que o nome do personagem aparece duas vezes na mesma linha.
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    C1.Name, C2.Name
+FROM
+    `Character` AS C1,
+    `Character` AS C2
+WHERE
+    C1.Specie = C2.Specie
+        AND C1.Name <> C2.Name;
 
 ```
