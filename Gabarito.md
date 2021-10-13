@@ -312,3 +312,37 @@ FROM
     Location AS L ON C.Origin = L.Location_id;
 
 ```
+---
+&nbsp;
+
+# SELF JOIN
+
+**1** - Escreva uma query que exiba os nomes dos personagens em uma coluna e os nomes dos personagens com o mesmo local de origem na coluna ao lado;
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    C1.Name, C2.Name
+FROM
+    `Character` AS C1,
+    `Character` AS C2
+WHERE
+    C1.Origin = C2.Origin;
+
+```
+
+**2** - Escreva uma query que exiba os nomes dos personagens em uma coluna e os nomes dos personagens com o mesmo local de origem na coluna ao lado, sem que o nome do personagem aparece duas vezes na mesma linha;
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    C1.Name, C2.Name
+FROM
+    `Character` AS C1,
+    `Character` AS C2
+WHERE
+    C1.Origin = C2.Origin AND C1.Name <> C2.Name;
+
+```
