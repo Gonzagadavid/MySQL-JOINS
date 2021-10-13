@@ -346,3 +346,17 @@ WHERE
     C1.Origin = C2.Origin AND C1.Name <> C2.Name;
 
 ```
+**3** - Escreva uma query que exiba os nomes dos personagens em uma coluna e os nomes dos personagens das mesma especie na coluna ao lado.
+
+```mysql
+USE final_space_db;
+
+SELECT 
+    C1.Name, C2.Name
+FROM
+    `Character` AS C1,
+    `Character` AS C2
+WHERE
+    C1.Specie = C2.Specie;
+
+```
