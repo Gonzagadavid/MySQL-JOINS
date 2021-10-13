@@ -667,8 +667,7 @@ WHERE
 
 &nbsp;
 
-Note que os Titulos que repediram foram o do segundo alias(AS) declarado, ou seja, R2. Também poderá perceber que os dados da mesma revistas se comparam consigo mesmo, isso porque o comportamento da tabela no SELF JOIN é semelhante a de duas tabelas distintas.
-Para tornar a consulta com uma melhor visualização, você poderá alterar a ordem do alias(AS), utilizar o WHERE para que uma informação não seja exibida consigo propria.
+Note que os Titulos que repetiram na mesma linha, ou seja ele se comparou consigo mesmo, isso pode ser corrigido através do WHERE.
 
 &nbsp;
 
@@ -678,8 +677,8 @@ USE ComicCenter;
 SELECT 
     R1.Titulo, R1.Editora, R2.Titulo, R2.Editora
 FROM
-    Revista AS R2,
-    Revista AS R1
+    Revista AS R1,
+    Revista AS R2
 WHERE
     R1.Editora = R2.Editora
         AND R1.Titulo <> R2.Titulo;
@@ -688,15 +687,15 @@ WHERE
 
 | Titulo           | Editora   | Titulo           | Editora   |
 | :--------------- | :-------- | :--------------- | :-------- |
-| Vingadores       | Marvel    | Homem Aranha     | Marvel    |
-| Vingadores       | Marvel    | X-Men            | Marvel    |
-| Liga da Justiça  | DC Comics | Mulher Maravilha | DC Comics |
-| Liga da Justiça  | DC Comics | Batman           | DC Comics |
-| Batman           | DC Comics | Mulher Maravilha | DC Comics |
-| Batman           | DC Comics | Liga da Justiça  | DC Comics |
-| X-Men            | Marvel    | Homem Aranha     | Marvel    |
-| X-Men            | Marvel    | Vingadores       | Marvel    |
-| Homem Aranha     | Marvel    | X-Men            | Marvel    |
 | Homem Aranha     | Marvel    | Vingadores       | Marvel    |
-| Mulher Maravilha | DC Comics | Batman           | DC Comics |
+| X-Men            | Marvel    | Vingadores       | Marvel    |
 | Mulher Maravilha | DC Comics | Liga da Justiça  | DC Comics |
+| Batman           | DC Comics | Liga da Justiça  | DC Comics |
+| Mulher Maravilha | DC Comics | Batman           | DC Comics |
+| Liga da Justiça  | DC Comics | Batman           | DC Comics |
+| Homem Aranha     | Marvel    | X-Men            | Marvel    |
+| Vingadores       | Marvel    | X-Men            | Marvel    |
+| X-Men            | Marvel    | Homem Aranha     | Marvel    |
+| Vingadores       | Marvel    | Homem Aranha     | Marvel    |
+| Batman           | DC Comics | Mulher Maravilha | DC Comics |
+| Liga da Justiça  | DC Comics | Mulher Maravilha | DC Comics |
