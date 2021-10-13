@@ -64,8 +64,8 @@ CREATE TABLE IF NOT EXISTS academia.Pessoa_Treinadora (
 CREATE TABLE IF NOT EXISTS academia.Treino (
   Pessoa_Associada_ID INT NOT NULL,
   Modalidade_ID INT NOT NULL,
-  Horario_ID INT NOT NULL,
-  PRIMARY KEY (Pessoa_Associada_ID, Modalidade_ID, Horario_ID),
+  Horario_ID INT,
+  PRIMARY KEY (Pessoa_Associada_ID, Modalidade_ID),
     FOREIGN KEY (Pessoa_Associada_ID)
     REFERENCES academia.Pessoa_Associada (Pessoa_Associada_ID),
     FOREIGN KEY (Modalidade_ID)
@@ -104,7 +104,7 @@ INSERT INTO academia.Modalidade (Modalidade_ID, Nome_modalidade)
     (2, 'Natação'),
     (3, 'Dança'),
     (4, 'Boxe'),
-    (6, 'Aeróbica');
+    (5, 'Aeróbica');
     
 INSERT INTO academia.Endereco (
   Endereco_ID, 
@@ -143,7 +143,8 @@ INSERT INTO academia.Endereco (
 		(27, 'Avenida General Charles de Gaulle', 380, 'Parque São Domingos', 05124901),
 		(28, 'Rua Pepita de Fogo', 317, 'Jardim São Carlos (Zona Leste)', 08062740),
 		(29, 'Rua Paulo da Silva', 793, 'Jardim do Lago', 05397110),
-		(30, 'Praça Daniel Berciano Villasol', 291, 'Perdizes', 05009050);
+		(30, 'Praça Daniel Berciano Villasol', 291, 'Perdizes', 05009050),
+    (31, 'Rua Doutor Sílvio Dante Bertacchi', 154, 'Vila Sônia', 05625001);
 
 INSERT INTO academia.Telefone (
   Telefone_ID,
@@ -184,7 +185,8 @@ INSERT INTO academia.Telefone (
     (31, '(11)986352698', '(11)27106247'),
     (32, '(11)984650287', '(11)36072875'),
     (33, '(11)985429620', '(11)28698585'),
-    (34, '(11)996005453', '(11)27739729');
+    (34, '(11)996005453', '(11)27739729'),
+    (35, '(11)982872235', '(11)28210058');
 			
 
 INSERT INTO  academia.Pessoa_Associada (
@@ -239,4 +241,59 @@ INSERT INTO  academia.Pessoa_Treinadora (
     (7, 'Beatriz', 'Oliveira', 6, 7),
     (8, 'Maya', 'Galvão', 1, 8),
     (9, 'Marcos', 'Fernades', 7, 9),
-    (10, 'Vinicios', 'Morais', 8, 10);
+    (10, 'Vinicios', 'Morais', 8, 10),
+    (11, 'Laura', 'Fernandes', 31, 35);
+
+
+INSERT INTO academia.Aula (
+  Pessoa_Treinadora_ID,
+  Modalidade_ID,
+  Horario_ID
+) 
+  VALUES
+    (1, 1, 1),
+    (6, 1, 2),
+    (1, 1, 3),
+    (2, 2, 1),
+    (4, 2, 2),
+    (2, 2, 3),
+    (3, 3, 1),
+    (10, 3, 2),
+    (3, 3, 3),
+    (5, 4, 1),
+    (7, 4, 2),
+    (5, 4, 3),
+    (6, 5, 1),
+    (8, 5, 2),
+    (6, 5, 3);
+
+INSERT INTO academia.Treino (
+  Pessoa_Associada_ID,
+  Modalidade_ID,
+  Horario_ID
+)
+  VALUES
+    (1, 3, 1),
+    (2, 2, 3),
+    (3, 1, 3),
+    (4, 1, 2),
+    (5, 4, 3),
+    (6, 4, 1),
+    (7, 2, 3),
+    (8, 5, 1),
+    (9, 4, 2),
+    (10, 1, 2),
+    (11, 4, 3),
+    (12, 1, NULL),
+    (13, 5, 3),
+    (14, 1, 1),
+    (15, 2, 3),
+    (16, 3, 1),
+    (17, 4, 2),
+    (18, 3, NULL),
+    (20, 1, 3),
+    (21, 4, 1),
+    (22, 2, 2),
+    (23, 4, NULL),
+    (24, 2, 3),
+    (25, 2, NULL);
