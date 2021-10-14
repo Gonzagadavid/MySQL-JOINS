@@ -589,9 +589,19 @@ FROM
 
 Para resolver o exercícios bonus use o banco de dados academia.
 
-**1** - Moste a o **nome da pessoa treinadora** e a **modalidade** em que atua. Use as tabelas Pessoa_Treinadora, Aula, Modalidade.
+**1** - Moste a o **nome da pessoa treinadora** e a **modalidade** em que atua, de modo que a mesma informação não se repita na tabela. Use as tabelas Pessoa_Treinadora, Aula, Modalidade.
 
 ```mysql
+USE academia;
+
+SELECT DISTINCT
+    PT.Nome, M.Nome_modalidade
+FROM
+    Pessoa_Treinadora AS PT
+        INNER JOIN
+    Aula AS A ON PT.Pessoa_Treinadora_ID = A.Pessoa_Treinadora_ID
+        INNER JOIN
+    Modalidade AS M ON A.Modalidade_ID = M.Modalidade_ID
 
 ```
 &nbsp;
@@ -617,4 +627,9 @@ Para resolver o exercícios bonus use o banco de dados academia.
 ```
 &nbsp;
 
-**5** - 
+**5** - Retorne o **nome da pessoa treinadora** e a quantidade de pessoas associadas que participam de suas aulas. Utilize as tabelas Pessoa_Treinadora, Treino, Aula.
+
+```mysql
+
+```
+&nbsp;
