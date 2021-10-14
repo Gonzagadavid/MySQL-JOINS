@@ -419,7 +419,7 @@ Para resolver os exercícios será o usado o banco de dados academia:
 USE academia;
 
 SELECT 
-    CONCAT(PA.nome, ' ', PA.sobrenome) AS `Nome Completo`,
+    CONCAT(PA.Nome, ' ', PA.Sobrenome) AS `Nome Completo`,
     E.Logradouro,
     E.Numero
 FROM
@@ -435,7 +435,7 @@ FROM
 USE academia;
 
 SELECT 
-    CONCAT(PT.nome, ' ', PT.sobrenome) AS `Nome Completo`,
+    CONCAT(PT.Nome, ' ', PT.Sobrenome) AS `Nome Completo`,
     E.Logradouro,
     E.Numero
 FROM
@@ -451,7 +451,7 @@ FROM
 USE academia;
 
 SELECT 
-    CONCAT(PT.nome, ' ', PT.sobrenome) AS `Nome Completo`,
+    CONCAT(PT.Nome, ' ', PT.Sobrenome) AS `Nome Completo`,
     E.Logradouro,
     E.Numero
 FROM
@@ -467,7 +467,7 @@ FROM
 USE academia;
 
 SELECT 
-    CONCAT(PA.nome, ' ', PA.sobrenome) AS `Nome Completo`,
+    CONCAT(PA.Nome, ' ', PA.Sobrenome) AS `Nome Completo`,
     T.Telefone_Contato,
     E.CEP
 FROM
@@ -485,7 +485,7 @@ FROM
 USE academia;
 
 SELECT 
-    CONCAT(PA.nome, ' ', PA.sobrenome) AS `Nome Completo`,
+    CONCAT(PA.Nome, ' ', PA.Sobrenome) AS `Nome Completo`,
     IFNULL(T.Telefone_Emergencia, 'PEDENTE') AS `Telefone de Emergência`
 FROM
     Pessoa_Associada AS `PA`
@@ -500,7 +500,7 @@ FROM
 USE academia;
 
 SELECT 
-    P1.nome, P2.nome
+    P1.Nome, P2.Nome
 FROM
     Pessoa_Associada AS `P1`,
     Pessoa_Associada AS `P2`
@@ -526,9 +526,19 @@ WHERE
 
 ```
 
-**8** - Crie uma query que retorne **uma coluna** os **planos** outra que com a **quantidade** de pessoas associadas que possuem esse plano.
+**8** - Crie uma query que retorne **uma coluna** o **nome dos planos** outra que com a **quantidade** de pessoas associadas que possuem esse plano, nomeie como 'Inclusos'.
 
 ```mysql
+USE academia;
+
+SELECT 
+    PL.Nome_plano, COUNT(PA.Nome) AS `Inclusos`
+FROM
+    Plano AS `PL`
+        INNER JOIN
+    Pessoa_Associada AS PA ON PL.Plano_ID = PA.Plano_ID
+GROUP BY Nome_Plano;
+
 ```
 
 **9** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, e **uma coluna** com o **periodo** dessa pessoa. Utilize as tabelas Pessoa_Associada, Aula e Horario.
