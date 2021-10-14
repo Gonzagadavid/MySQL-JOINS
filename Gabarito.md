@@ -270,6 +270,8 @@ FROM
     Location AS L ON C.Origin = L.Location_id;
 
 ```
+&nbsp;
+
 **3** - Escreva uma query que mostre **nome do personagem** e  **nome de todas as espécies**, mesmo as que não possuem personagem com aquela espécie.
 
 ```mysql
@@ -279,7 +281,7 @@ SELECT
     C.Name, S.Specie_Name
 FROM
     `Character` AS C
-        LEFT JOIN
+        RIGHT JOIN
     Specie AS S ON C.Specie = S.Specie_id;
 
 ```
