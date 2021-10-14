@@ -461,9 +461,22 @@ FROM
 
 ```
 
-**4** - Escreva uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com **telefone** e outra com o **cep** dessa pessoa. Utilize as tabelas Pessoa_Associada, Telefone e Endereco.
+**4** - Escreva uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com **telefone de contato** e outra com o **cep** dessa pessoa. Utilize as tabelas Pessoa_Associada, Telefone e Endereco.
 
 ```mysql
+USE academia;
+
+SELECT 
+    CONCAT(PA.nome, ' ', PA.sobrenome) AS `Nome Completo`,
+    T.Telefone_Contato,
+    E.CEP
+FROM
+    Pessoa_Associada AS `PA`
+        INNER JOIN
+    Telefone AS T ON PA.Telefone_ID = T.Telefone_ID
+        INNER JOIN
+    Endereco AS E ON PA.Endereco_ID = E.Endereco_ID;
+
 ```
 
 **5** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia, e **uma coluna** com o **telefone de emergência** dessa pessoa, caso a pessoa não tiver telefone de emergencia, exiba 'PENDENTE'. Utilize as tabelas Pessoa_Associada e Telefone.
