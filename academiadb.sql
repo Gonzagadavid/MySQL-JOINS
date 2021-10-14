@@ -225,7 +225,9 @@ INSERT INTO  academia.Pessoa_Associada (
     (26, 'Marcelo', 'Souza', 15, 21, 3),
     (27, 'Angela', 'Pereira', 17, NULL, 1),
     (29, 'Saulo', 'Gonçalves', 26, NULL, 3),
-    (30, 'Maria', 'Silva', 13, NULL, 1);
+    (30, 'Maria', 'Silva', 13, NULL, 1),
+    (31, 'Livia', 'Almeida', 10, NULL, 1),
+    (32, 'Oswaldo', 'Garibaldo', 29, NULL, 3);
 
 	
 INSERT INTO  academia.Pessoa_Treinadora (
@@ -304,4 +306,6 @@ INSERT INTO academia.Treino (
     (26, 3, 3),
     (27, 5, 3),
     (29, 5, 3),
-    (30, 5, 1);
+    (30, 5, 1),
+    (31, 2, 3),
+    (32, 1, 1);

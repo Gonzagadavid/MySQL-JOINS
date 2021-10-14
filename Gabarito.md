@@ -494,17 +494,39 @@ FROM
 
 ```
 
-**6** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa assoaciada que possui o mesmo **endereço**.
+**6** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa assoaciada que possui o mesmo **endereço**. Porém não deixe que o mesmo nome se repita na mesma linha.
 
 ```mysql
+USE academia;
+
+SELECT 
+    P1.nome, P2.nome
+FROM
+    Pessoa_Associada AS `P1`,
+    Pessoa_Associada AS `P2`
+WHERE
+    P1.Endereco_ID = P2.Endereco_ID
+        AND P1.Nome <> P2.Nome;
+
 ```
 
-**7** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa associada que treinam no mesmo **periodo**. Porém não deixe que o mesmo nome se repita na mesma linha.
+**7** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa treinadora que possui o mesmo **endereço**. Porém não deixe que o mesmo nome se repita na mesma linha.
 
 ```mysql
+USE academia;
+
+SELECT 
+    P1.Nome, P2.Nome
+FROM
+    Pessoa_Treinadora AS `P1`,
+    Pessoa_Treinadora AS `P2`
+WHERE
+    P1.Endereco_ID = P2.Endereco_ID
+        AND P1.Nome <> P2.Nome;
+
 ```
 
-**8** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa treinadora que possui o mesmo **endereço**. Porém não deixe que o mesmo nome se repita na mesma linha.
+**8** - Crie uma query que retorne **uma coluna** os **planos** outra que com a **quantidade** de pessoas associadas que possuem esse plano.
 
 ```mysql
 ```
