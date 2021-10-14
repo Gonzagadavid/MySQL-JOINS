@@ -1,6 +1,10 @@
 # Gabarito
 
-## Exercícios de Fixação
+
+## EXERCÍCIOS
+
+**Hora de praticar!** 
+Tempo sugerido para realização: 60 minutos
 
 Para a resolver os exercícios de fixação, será usado o banco de dados final_space_db, execute o script abaixo no seu MySQL Workbench:
 
@@ -112,6 +116,8 @@ INSERT INTO final_space_db.Character(
     (30, 'Oreskis"',2, 7 );
     
 ```
+
+
 ---
 &nbsp;
 
@@ -119,7 +125,8 @@ INSERT INTO final_space_db.Character(
 
 **1** - Escreva uma query que retorne **uma coluna** com o **nome dos personagens** e **uma coluna** com o **nome de sua espécie**.  
 
-*Dica: Quando queremos usar uma palavra reservada do mysql para referenciar a uma tabela, devemos colocar a palavra entre o acento grave (`) .  Por exemplo, o banco de dados fornecido para os exercícios de fixação possui uma tabela com o nome de Character, uma palavra reservada, então ao referencia-lá   escrevemos:*  &#96;*Character*&#96;.
+*Dica: Quando queremos usar uma palavra reservada do mysql para referenciar a uma tabela, devemos colocar a palavra entre o acento grave (`) .  Por exemplo, o banco de dados fornecido para os exercícios de fixação possui uma tabela com o nome de Character, uma palavra reservada, então ao referencia-lá   escrevemos:  * &#96;*Character*&#96; *.
+
 ```mysql
 USE final_space_db;
 
@@ -131,6 +138,7 @@ FROM
     Specie AS S ON C.Specie = S.Specie_id;
 
 ```
+*Note que os nomes não precisam ser iguais para ter relação com as colunas das tabelas *
 
 &nbsp;
 
@@ -235,13 +243,14 @@ WHERE
 ORDER BY C.Name DESC;
 
 ```
+
+
 ---
 &nbsp;
 
 # LEFT JOIN e RIGHT JOIN
 
-**1** - Escreva uma query que exiba os **nomes de todos os personagem e sua espécie**. 
-*Observação: O nome de todos os personagens deve aparecer,  inclusive os que não tem uma espécie definida.*
+**1** - Escreva uma query que exiba os **nomes de todos os personagem e sua espécie**, inclusive os que não tem uma espécie definida.
 
 ```mysql
 USE final_space_db;
@@ -256,8 +265,7 @@ FROM
 ```
 &nbsp;
 
-**2** - Escreva uma query que exiba os **nomes de todos os personagem** e seu **local de origem**.
-*Observação: O nome de todos os personagens deve aparecer, inclusive os que não tem um local de origem definido.*
+**2** - Escreva uma query que exiba os **nomes de todos os personagem** e seu **local de origem**, inclusive os que não tem um local de origem definido.
 
 ```mysql
 USE final_space_db;
@@ -317,6 +325,7 @@ FROM
 &nbsp;
 
 **6** - Escreva uma query que retorne **nome do personagem**  e  **nome de todos locais de origem**. Nomeie  coluna nome do personagem de 'Character' e coluna do local de 'Local'. 
+
 Caso não houver personagem com origem do local, o campo que apresentaria no nome do personagem deve mostrar 'Unknown'.
 
 ```mysql
@@ -331,6 +340,8 @@ FROM
     Location AS L ON C.Origin = L.Location_id;
 
 ```
+
+
 ---
 &nbsp;
 
@@ -387,7 +398,7 @@ WHERE
 
 **4** - Escreva uma query que exiba **nomes dos personagens** em uma coluna e **nomes dos personagens das mesma espécie** na coluna ao lado. Agora, sem que nome do personagem apareça duas vezes na mesma linha.
 
-```mysql
+``` mysql
 USE final_space_db;
 
 SELECT 

@@ -38,7 +38,7 @@ Hoje, você aprenderá a utilizar os principais **Joins** no **MySQL**, associan
 
 O **banco de dados relacional** armazena diversas tabelas que **relaciona os dados entre si** e utiliza indicadores como referência. Sendo assim, as informações da qual você precisará para sua consulta, poderá estar em mais de uma tabela, surgindo a necessidade de unir duas ou mais tabelas em uma mesma query.
 
---- 
+---
 &nbsp;
 
 # JOIN
@@ -118,7 +118,7 @@ INSERT INTO ComicCenter.Revista (Revista_id, Titulo, Editora)
          (5, 'Homem Aranha', 'Marvel'),
          (6, 'Mulher Maravilha', 'Dc Comics');
   ```
---- 
+---
 &nbsp;
 
 # INNER JOIN
@@ -306,7 +306,7 @@ Retorando o seguinte resultado:
 ---
 &nbsp;
 
-# Exercícios de Fixação
+## Exercícios de Fixação
 
 Para a resolver os exercícios de fixação, será usado o banco de dados final_space_db, execute o script abaixo no seu MySQL Workbench:
 
@@ -418,22 +418,6 @@ INSERT INTO final_space_db.Character(
     (30, 'Oreskis"',2, 7 );
     
 ```
-&nbsp;
-
-**1** - Escreva uma query que retorne **uma coluna** com o **nome dos personagens** e **uma coluna** com o **nome de sua espécie**.  
-*Dica: Quando queremos usar uma palavra reservada do mysql para referenciar a uma tabela, devemos colocar a palavra entre o acento grave (`) .  Por exemplo, o banco de dados fornecido para os exercícios de fixação possui uma tabela com o nome de Character, uma palavra reservada, então ao referencia-lá   escrevemos:*  &#96;*Character*&#96;.
-
-**2** - Escreva uma querie que retorne **uma coluna** com os **nomes dos personagens** e **uma coluna** com o **nome do seu local de origem**.
-
-**3** - Agora, retorne o **nome do personagem**, **sua espécie** e o **lugar de origem** em uma query.
-
-**4** - Escreva uma query que retornará **uma coluna** com o **nome da espécie**, nomeie como `Especie,` e **uma coluna** com a **quantidade de personagens daquela espécie**, nomeie como `Quantidade`. Por fim,  **organize a lista** de forma **ascendente** pela a quantidade.
-
-**5** - Escreva uma query que retorne **uma coluna** com o **nome do Local**, nomeie como `Local de origem,` e **uma coluna** com **quantidade de personagens** que tenham origem desse local, nomeie como `Quantidade`. Por fim, **organize a lista** de forma **decrescente** pela a quantidade.
-
-**6** - Escreva uma query que **retorne os nomes dos personagens** que tem como **local de origem 'Earth'**. Por fim, **organize** os nomes em **ordem alfabética**.
-
-**7** - Escreva uma query que retorne **nome** e **local de origem** de todos personagens que são **de espécie 'Ventrexian'**. Por fim, **ordene** os nome de forma **alfabética-invertida**.
 
 ---
 &nbsp;
@@ -528,7 +512,7 @@ ON
 
 ## Situação a qual será aplicado o RIGHT JOIN
 
-Imagine que você queira que sua consulta retorne os dados de todas as pessoas funcionarias, pessoa cliente ou não. Caso seja pessoa cliente, você deseja que os dados da tabela Ciente dessa pessoa sejam exibidos.
+Imagine que você queira que sua consulta retorne os dados de todas as pessoas funcionarias, pessoa cliente ou não. Caso seja pessoa cliente, você deseja que os dados da tabela Cliente dessa pessoa sejam exibidos.
 
 ## Usando o RIGHT JOIN
 
@@ -564,7 +548,7 @@ ON
 
 ## Usando IFNULL
 
-Se você deseja substituir os valores NULL por outro valor, basta utilizar a função IFNULL. Você deve passar a coluna como primeiro parâmetro e o valor a ser atribuido para os campos preenchidos com  NULL, como segundo parâmetro. Segue alguns exemplos: 
+Se você deseja substituir os valores de NULL por outros valores, basta utilizar a função IFNULL. Você deve passar a coluna como primeiro parametro e o valor a ser atribuido para os campos preenchidos com a palavra NULL. Segue alguns exemplos:  
 
 ### Utilizando IFNULL no LEFT JOIN
 
@@ -621,29 +605,6 @@ FROM
 ---
 &nbsp;
 
-# Exercícios de Fixação
-
-Usando o banco de dados final_space_db, resolva os exercicios abaixo:
-
-**1** - Escreva uma query que exiba os **nomes de todos os personagem e sua espécie**. 
-*Observação: O nome de todos os personagens deve aparecer,  inclusive os que não tem uma espécie definida.*
-
-**2** - Escreva uma query que exiba os **nomes de todos os personagem** e seu **local de origem**.
-*Observação: O nome de todos os personagens deve aparecer, inclusive os que não tem um local de origem definido.*
-
-**3** - Escreva uma query que mostre **nome do personagem** e  **nome de todas as espécies**, mesmo as que não possuem personagem com aquela espécie.
-
-**4** - Escreva uma query que retorne **nome do personagem** e  **nome de todos locais de origem**, inclusive os personagens sem origem desse local.
-
-**5** - Escreva uma query que exiba **nomes de todos os personagem** e **sua espécie**. Se o personagem não tiver espécie definida, o campo da espécie deverá mostrar 'Unknown'. Por fim, nomeie a coluna espécie de 'Specie' e a coluna nomes dos personagens de 'Character'.
-
-**6** - Escreva uma query que retorne **nome do personagem**  e  **nome de todos locais de origem**. Nomeie  coluna nome do personagem de 'Character' e coluna do local de 'Local'. 
-Caso não houver personagem com origem do local, o campo que apresentaria no nome do personagem deve mostrar 'Unknown'.
-
----
-&nbsp;
-
-
 # SELF JOIN
 
 ## Situação a qual será aplicado o SELF JOIN
@@ -665,7 +626,7 @@ Agora, imagine que na sua consulta você precisará exibir todas as revistas da 
 ## Usando o SELF JOIN
 
 Para situações como essa pode ser usado o SELF JOIN, pois você irá **relacionar informações de uma tabela com informações contidas na mesma**.
-Diferente dos outros JOINS o termo SELF JOIN, não precisará ser declarado na query. Basta declarar a mesma tabela duas vezes separando por uma virgula e usar alias(AS) diferente para as duas, usando um WHERE para informar os dados a serem relacionados.
+Diferente dos outros JOINS o SELF JOIN, não precisará declarar na query. Basta declarar a mesma tabela duas vezes separando por uma virgula e usar alias(AS) diferente para as duas, usando um WHERE para informar os dados a serem relacionados.
 
 &nbsp;
 
@@ -706,7 +667,7 @@ WHERE
 
 &nbsp;
 
-Note que os Titulos que repetiram na mesma linha, ou seja ele se comparou consigo mesmo, isso pode ser corrigido através do **WHERE**.
+Note que alguns Titulos foram repitidos na mesma linha. Isso ocorre porque há uma comparação com si mesmo. Porém, em seguida, você visualizará que podemos corrigir através do **WHERE**.
 
 &nbsp;
 
@@ -739,17 +700,4 @@ WHERE
 | Batman           | DC Comics | Mulher Maravilha | DC Comics |
 | Liga da Justiça  | DC Comics | Mulher Maravilha | DC Comics |
 
-&nbsp;
-
-# Exercícios de Fixação
-
-Usando o banco de dados final_space_db, resolva os exercicios abaixo:
-
-**1** - Escreva uma query que exiba **nomes dos personagens** em uma coluna e **nomes dos personagens** com **mesmo local de origem** na coluna ao lado;
-
-**2** - Escreva uma query que exiba **nomes dos personagens** em uma coluna e **nomes dos personagens** com **mesmo local de origem** na coluna ao lado. Agora, sem que nome do personagem apareça duas vezes na mesma linha.
-
-**3** - Escreva uma query que exiba **nomes dos personagens** em uma coluna e **nomes dos personagens das mesma espécie** na coluna ao lado.
-
-**4** - Escreva uma query que exiba **nomes dos personagens** em uma coluna e **nomes dos personagens das mesma espécie** na coluna ao lado. Agora, sem que nome do personagem apareça duas vezes na mesma linha.
-
+Note que não temos mais titulos repitidos, pois não há comparação do titulo com ele mesmo. 
