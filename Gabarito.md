@@ -533,13 +533,13 @@ WHERE
 ```
 &nbsp;
 
-**8** - Crie uma query que retorne **uma coluna** o **nome dos planos** outra que com a **quantidade** de pessoas associadas que possuem esse plano, nomeie como 'Inclusos'.
+**8** - Crie uma query que retorne **uma coluna** o **nome dos planos** outra que com a **quantidade** de pessoas associadas que possuem esse plano, nomeie como 'Pessoas Inclusas'.
 
 ```mysql
 USE academia;
 
 SELECT 
-    PL.Nome_plano, COUNT(PA.Nome) AS `Inclusos`
+    PL.Nome_plano, COUNT(PA.Nome) AS `Pessoas Inclusas`
 FROM
     Plano AS `PL`
         INNER JOIN
@@ -584,3 +584,37 @@ FROM
 
 ```
 &nbsp;
+
+## Bonus
+
+Para resolver o exercícios bonus use o banco de dados academia.
+
+**1** - Moste a o **nome da pessoa treinadora** e a **modalidade** em que atua. Use as tabelas Pessoa_Treinadora, Aula, Modalidade.
+
+```mysql
+
+```
+&nbsp;
+
+**2** - Retorne o **nome da pessoa treinadora** e o **periodo** em que atua. Utilize as tabelas Pessoa_Treinadora, Aula, Horario.
+
+```mysql
+
+```
+&nbsp;
+
+**3** - Retorne o **nome de todas pessoas treinadoras** e o **periodo** em que atua, caso não tenha um horario estipulado, mostre 'EVENTUAL'. Utilize as tabelas Pessoa_Treinadora, Aula, Horario.
+
+```mysql
+
+```
+&nbsp;
+
+**4** - Retorne o **nome da modalidade** e a quantidade de pessoas que a praticam, nomeie essa coluna como 'Pessoas'. Utilize as Tabelas Modalidae e Treino.
+
+```mysql
+
+```
+&nbsp;
+
+**5** - 
