@@ -1156,6 +1156,14 @@ nomeie essa coluna como 'Pessoas'. Utilize as tabelas Pessoa_Treinadora, Treino,
 **6** - Escreva uma query que retorne o **nome da pessoa associada** e o **nome da pessoa treinadora** responsavel pelo seu treino de acordo com a modalidade e o horario.
 
 ---
+&nbsp;
 
 # Recursos Adicionais
 
+Além dos JOINS usados nessa aula, existem outros, os links abaixo mostrará, caso queira se aprofundar:
+
+- Além dos que JOINS apresentados no conteúdo, esse material também fala sobre o CROSS JOIN - [MySQLTutorial](https://www.mysqltutorial.org/mysql-join/)
+
+- Esse conteúdo contem exemplos e exercicíos - [W3SCHOOLS](https://www.w3schools.com/sql/sql_join.asp)
+
+- Documentação do MySQL sobre JOIN - [MySQL Documentation](https://dev.mysql.com/doc/refman/8.0/en/join.html)
