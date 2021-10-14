@@ -182,14 +182,12 @@ Sendo assim, sua query ficaria assim:
 ```mysql
 USE ComicCenter;
 
- SELECT 
+SELECT 
     Cliente.Cliente_id, Cliente.Nome, Telefone.Numero
 FROM
     Cliente
         INNER JOIN
-    Telefone
-ON
-    Cliente.Cliente_id = Telefone.Cliente_id;
+    Telefone ON Cliente.Cliente_id = Telefone.Cliente_id;
 
 ```
 &nbsp;
@@ -217,9 +215,7 @@ SELECT
 FROM
     Cliente AS C
         INNER JOIN
-    Telefone AS T
-ON
-    C.Cliente_id = T.Cliente_id;
+    Telefone AS T ON C.Cliente_id = T.Cliente_id;
 ```
 *Usar a primeira letra ou uma abreviação do nome da tabela como alias é muito comum e uma ótima opção*
 
@@ -284,12 +280,9 @@ SELECT
 FROM
     Cliente AS C
         INNER JOIN
-    Telefone AS T
-ON
-    C.Cliente_id = T.Cliente_id
-            INNER JOIN
-    Email AS E
-ON E.Cliente_id = C.Cliente_id;
+    Telefone AS T ON C.Cliente_id = T.Cliente_id
+        INNER JOIN
+    Email AS E ON E.Cliente_id = C.Cliente_id;
 
 ```
 &nbsp;
@@ -470,13 +463,11 @@ Para identificar essas pessoas basta utilizar o INNER JOIN:
 USE ComicCenter;
 
 SELECT 
-        C.Cliente_id, C.Nome, F.Funcionario_id, F.Nome
+    C.Cliente_id, C.Nome, F.Funcionario_id, F.Nome
 FROM
-        Cliente AS C
-                INNER JOIN
-        Funcionario AS F
-ON
-        C.Nome = F.Nome;
+    Cliente AS C
+        INNER JOIN
+    Funcionario AS F ON C.Nome = F.Nome;
 
 ```
 &nbsp;
@@ -506,13 +497,11 @@ Para essa situação é utilizado o LEFT JOIN, pois manterá TODOS os dados da *
 USE ComicCenter;
 
 SELECT 
-        C.Cliente_id, C.Nome, F.Funcionario_id, F.Nome
+    C.Cliente_id, C.Nome, F.Funcionario_id, F.Nome
 FROM
-        Cliente AS C
-                LEFT JOIN
-        Funcionario AS F
-ON
-        C.Nome = F.Nome;
+    Cliente AS C
+        LEFT JOIN
+    Funcionario AS F ON C.Nome = F.Nome;
 
 ```
 &nbsp;
@@ -541,13 +530,11 @@ Para essa situação pode ser utilizado o RIGHT JOIN, pois ele manterá TODOS os
 USE ComicCenter;
 
 SELECT 
-        C.Cliente_id, C.Nome, F.Funcionario_id, F.Nome
+    C.Cliente_id, C.Nome, F.Funcionario_id, F.Nome
 FROM
-        Cliente AS C
-                RIGHT JOIN
-        Funcionario AS F
-ON
-        C.Nome = F.Nome;
+    Cliente AS C
+        RIGHT JOIN
+    Funcionario AS F ON C.Nome = F.Nome;
 
 ```
 
@@ -575,7 +562,7 @@ SELECT
     C.Cliente_id,
     C.Nome,
     IFNULL(F.Funcionario_id, 'inexistente') AS Funcionario_id,
-    IFNULL(F.Nome, 'não funcionario') as Nome
+    IFNULL(F.Nome, 'não funcionario') AS Nome
 FROM
     Cliente AS C
         LEFT JOIN
