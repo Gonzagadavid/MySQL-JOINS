@@ -416,16 +416,49 @@ Para resolver os exercícios será o usado o banco de dados academia:
 **1** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com o **logradouro**  e outra com o **numero**. Utilize as tabelas Pessoa_Associada e Endereco.
 
 ```mysql
+USE academia;
+
+SELECT 
+    CONCAT(PA.nome, ' ', PA.sobrenome) AS `Nome Completo`,
+    E.Logradouro,
+    E.Numero
+FROM
+    Pessoa_Associada AS PA
+        INNER JOIN
+    Endereco AS E ON PA.Endereco_ID = E.Endereco_ID;
+
 ```
 
-**2** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas intrutoras da academia, **uma coluna** com o **logradouro**  e outra com o **numero**. Utilize as tabelas Pessoa_Treinadora e Endereco.
+**2** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas instrutoras da academia, **uma coluna** com o **logradouro**  e outra com o **numero**. Utilize as tabelas Pessoa_Treinadora e Endereco.
 
 ```mysql
+USE academia;
+
+SELECT 
+    CONCAT(PT.nome, ' ', PT.sobrenome) AS `Nome Completo`,
+    E.Logradouro,
+    E.Numero
+FROM
+    Pessoa_Treinadora AS `PT`
+        INNER JOIN
+    Endereco AS E ON PT.Endereco_ID = E.Endereco_ID;
+
 ```
 
 **3** - Escreva uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com **o nome do plano** dessa pessoa. Utilize as tabelas Pessoa_Associada e Plano.
 
 ```mysql
+USE academia;
+
+SELECT 
+    CONCAT(PT.nome, ' ', PT.sobrenome) AS `Nome Completo`,
+    E.Logradouro,
+    E.Numero
+FROM
+    Pessoa_Treinadora AS `PT`
+        INNER JOIN
+    Endereco AS E ON PT.Endereco_ID = E.Endereco_ID;
+
 ```
 
 **4** - Escreva uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com **telefone** e outra com o **cep** dessa pessoa. Utilize as tabelas Pessoa_Associada, Telefone e Endereco.
