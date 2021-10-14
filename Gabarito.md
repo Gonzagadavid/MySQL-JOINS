@@ -408,7 +408,7 @@ WHERE
 
 ## Exercícios
 
-Para resolver os exercícios será o usado o banco de dados academia:
+Para resolver os exercícios, use o banco de dados academia:
 
 ```mysql
 ```
@@ -428,6 +428,7 @@ FROM
     Endereco AS E ON PA.Endereco_ID = E.Endereco_ID;
 
 ```
+&nbsp;
 
 **2** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas instrutoras da academia, **uma coluna** com o **logradouro**  e outra com o **numero**. Utilize as tabelas Pessoa_Treinadora e Endereco.
 
@@ -444,6 +445,7 @@ FROM
     Endereco AS E ON PT.Endereco_ID = E.Endereco_ID;
 
 ```
+&nbsp;
 
 **3** - Escreva uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com **o nome do plano** dessa pessoa. Utilize as tabelas Pessoa_Associada e Plano.
 
@@ -460,6 +462,7 @@ FROM
     Endereco AS E ON PT.Endereco_ID = E.Endereco_ID;
 
 ```
+&nbsp;
 
 **4** - Escreva uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com **telefone de contato** e outra com o **cep** dessa pessoa. Utilize as tabelas Pessoa_Associada, Telefone e Endereco.
 
@@ -478,6 +481,7 @@ FROM
     Endereco AS E ON PA.Endereco_ID = E.Endereco_ID;
 
 ```
+&nbsp;
 
 **5** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia, e **uma coluna** com o **telefone de emergência** dessa pessoa, caso a pessoa não tiver telefone de emergencia, exiba 'PEDENTE', nomeie essa coluna como 'Telefone de Emergência'. Utilize as tabelas Pessoa_Associada e Telefone.
 
@@ -493,6 +497,7 @@ FROM
     Telefone AS T ON PA.Telefone_ID = T.Telefone_ID;
 
 ```
+&nbsp;
 
 **6** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa assoaciada que possui o mesmo **endereço**. Porém não deixe que o mesmo nome se repita na mesma linha.
 
@@ -509,6 +514,7 @@ WHERE
         AND P1.Nome <> P2.Nome;
 
 ```
+&nbsp;
 
 **7** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa treinadora que possui o mesmo **endereço**. Porém não deixe que o mesmo nome se repita na mesma linha.
 
@@ -525,6 +531,7 @@ WHERE
         AND P1.Nome <> P2.Nome;
 
 ```
+&nbsp;
 
 **8** - Crie uma query que retorne **uma coluna** o **nome dos planos** outra que com a **quantidade** de pessoas associadas que possuem esse plano, nomeie como 'Inclusos'.
 
@@ -540,13 +547,40 @@ FROM
 GROUP BY Nome_Plano;
 
 ```
+&nbsp;
 
-**9** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, e **uma coluna** com o **periodo** dessa pessoa. Utilize as tabelas Pessoa_Associada, Aula e Horario.
-
-```mysql
-```
-
-**10** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia, e **uma coluna** com o **periodo** dessa pessoa, caso a pessoa não tiver periodo estipulado, exiba 'LIVRE'. Utilize as tabelas Pessoa_Associada, Aula e Horario.
+**9** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, e **uma coluna** com o **periodo** dessa pessoa. Utilize as tabelas Pessoa_Associada, Treino e Horario.
 
 ```mysql
+USE academia;
+
+SELECT 
+    CONCAT(PA.Nome, ' ', PA.Sobrenome) AS `Nome Completo`,
+    H.Periodo
+FROM
+    Pessoa_Associada AS `PA`
+        INNER JOIN
+    Treino AS T ON PA.Pessoa_Associada_ID = T.Pessoa_Associada_ID
+        INNER JOIN
+    Horario AS H ON H.Horario_ID = T.Horario_ID;
+
 ```
+&nbsp;
+
+**10** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia, e **uma coluna** com o nome 'Horario', mostrando o **periodo** dessa pessoa, caso a pessoa não tiver periodo estipulado, exiba 'LIVRE'. Utilize as tabelas Pessoa_Associada, Aula e Horario.
+
+```mysql
+USE academia;
+
+SELECT 
+    CONCAT(PA.Nome, ' ', PA.Sobrenome) AS `Nome Completo`,
+    IFNULL(H.Periodo, 'LIVRE') AS `Horario`
+FROM
+    Pessoa_Associada AS `PA`
+        LEFT JOIN
+    Treino AS T ON PA.Pessoa_Associada_ID = T.Pessoa_Associada_ID
+        LEFT JOIN
+    Horario AS H ON H.Horario_ID = T.Horario_ID;
+
+```
+&nbsp;
