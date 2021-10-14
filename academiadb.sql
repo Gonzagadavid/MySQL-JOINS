@@ -164,7 +164,7 @@ INSERT INTO academia.Telefone (
 		(10, '(11)997629440', '(11)26449065'),
 		(11, '(11)982903669', '(11)29823025'),
 		(12, '(11)981651295', '(11)27846478'),
-		(13, NULL, '(11)29544808'),
+		(13, '(11)29544808', NULL),
 		(14, '(11)981126496', '(11)26736144'),
 		(15, '(11)982591935', '(11)25415453'),
 		(16, '(11)993509407', '(11)25945608'),
@@ -208,7 +208,7 @@ INSERT INTO  academia.Pessoa_Associada (
     (8, 'Nair', 'Ramos', 15, 18, 2),
     (9, 'André', 'Silva', 16, 19, 2),
     (10, 'Yuri', 'Pereira', 17, 20, 1),
-    (11, 'José', 'Antunes', 18, 21, 2),
+    (11, 'José', 'Antunes', 18, NULL, 2),
     (12, 'Betina', 'Texeira', 19, 22, 3),
     (13, 'Antônia', 'Souza', 20, 23, 3),
     (14, 'Antônio', 'Nunes', 21, 24, 4),
@@ -221,7 +221,11 @@ INSERT INTO  academia.Pessoa_Associada (
     (22, 'Sonia', 'Nunes', 28, 31, 1),
     (23, 'Francisco', 'Rodrigues', 29, 32, 1),
     (24, 'Alessandra', 'Rodrigues', 29, 33, 1),
-    (25, 'Cauê', 'Costa', 30, 34, 2);
+    (25, 'Cauê', 'Costa', 30, 34, 2),
+    (26, 'Marcelo', 'Souza', 15, 21, 3),
+    (27, 'Angela', 'Pereira', 17, NULL, 1),
+    (29, 'Saulo', 'Gonçalves', 26, NULL, 3),
+    (30, 'Maria', 'Silva', 13, NULL, 1);
 
 	
 INSERT INTO  academia.Pessoa_Treinadora (
@@ -296,4 +300,8 @@ INSERT INTO academia.Treino (
     (22, 2, 2),
     (23, 4, NULL),
     (24, 2, 3),
-    (25, 2, NULL);
+    (25, 2, NULL),
+    (26, 3, 3),
+    (27, 5, 3),
+    (29, 5, 3),
+    (30, 5, 1);

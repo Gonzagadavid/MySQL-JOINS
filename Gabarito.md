@@ -400,3 +400,32 @@ WHERE
         AND C1.Name <> C2.Name;
 
 ```
+
+---
+&nbsp;
+
+# Vamos praticar!
+
+## Exercícios
+
+Para resolver os exercícios será o usado o banco de dados academia:
+
+```mysql
+```
+
+**1** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com o **logradouro**  e outra com o **numero**. Utilize as tabelas Pessoa_Associada e Endereco.
+
+```mysql
+```
+
+**2** - Escreva uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com **o nome do plano** dessa pessoa. Utilize as tabelas Pessoa_Associada e Plano.
+
+```mysql
+```
+
+**3** - Escreva uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com **telefone** e outra com o **cep** dessa pessoa. Utilize as tabelas Pessoa_Associada, Telefone e Endereco.
+
+```mysql
+```
+
+**4** - 
