@@ -855,7 +855,7 @@ WHERE
 ```
 &nbsp;
 
-**8** - Crie uma query que retorne **uma coluna** o **nome dos planos** outra que com a **quantidade** de pessoas associadas que possuem esse plano, nomeie como 'Pessoas Inclusas'.
+**8** - Crie uma query que retorne **uma coluna** com **nome dos planos** e outra com a **quantidade** de pessoas associadas que possuem esse plano, nomeie como 'Pessoas Inclusas'.
 
 ```mysql
 USE academia;
