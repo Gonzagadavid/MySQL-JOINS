@@ -776,13 +776,12 @@ FROM
 USE academia;
 
 SELECT 
-    CONCAT(PT.Nome, ' ', PT.Sobrenome) AS `Nome Completo`,
-    E.Logradouro,
-    E.Numero
+    CONCAT(PA.Nome, ' ', PA.Sobrenome) AS `Nome Completo`,
+		PL.Nome_plano
 FROM
-    Pessoa_Treinadora AS `PT`
+    Pessoa_Associada AS PA
         INNER JOIN
-    Endereco AS E ON PT.Endereco_ID = E.Endereco_ID;
+    Plano AS PL ON PA.Plano_ID = PL.Plano_ID;
 
 ```
 &nbsp;
