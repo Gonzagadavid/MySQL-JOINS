@@ -777,7 +777,7 @@ USE academia;
 
 SELECT 
     CONCAT(PA.Nome, ' ', PA.Sobrenome) AS `Nome Completo`,
-	PL.Nome_plano
+    PL.Nome_plano
 FROM
     Pessoa_Associada AS PA
         INNER JOIN
