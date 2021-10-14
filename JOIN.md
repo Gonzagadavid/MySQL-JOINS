@@ -1097,7 +1097,7 @@ INSERT INTO academia.Treino (
 
 &nbsp;
 
-**7** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa treinadora que possui o mesmo **endereço**. Porém, não deixe que o mesmo nome se repita na mesma linha.
+**7** - Crie uma query que retorne **duas coluna** com o **nome** das pessoas treinadoras que possui o mesmo **endereço**. Porém, não deixe que o mesmo nome se repita na mesma linha.
 
 &nbsp;
 
