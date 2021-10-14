@@ -871,7 +871,7 @@ GROUP BY Nome_Plano;
 ```
 &nbsp;
 
-**9** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo', com o **nome completo** das pessoas associadas a academia, e **uma coluna** com o **período** dessa pessoa. Utilize as tabelas Pessoa_Associada, Treino e Horario.
+**9** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo', com o **nome completo** das pessoas associadas a academia, e **uma coluna** com o **período** de treino dessa pessoa. Utilize as tabelas Pessoa_Associada, Treino e Horario.
 
 ```mysql
 USE academia;
