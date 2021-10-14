@@ -479,9 +479,19 @@ FROM
 
 ```
 
-**5** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia, e **uma coluna** com o **telefone de emergência** dessa pessoa, caso a pessoa não tiver telefone de emergencia, exiba 'PENDENTE'. Utilize as tabelas Pessoa_Associada e Telefone.
+**5** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia, e **uma coluna** com o **telefone de emergência** dessa pessoa, caso a pessoa não tiver telefone de emergencia, exiba 'PEDENTE', nomeie essa coluna como 'Telefone de Emergência'. Utilize as tabelas Pessoa_Associada e Telefone.
 
 ```mysql
+USE academia;
+
+SELECT 
+    CONCAT(PA.nome, ' ', PA.sobrenome) AS `Nome Completo`,
+    IFNULL(T.Telefone_Emergencia, 'PEDENTE') AS `Telefone de Emergência`
+FROM
+    Pessoa_Associada AS `PA`
+        INNER JOIN
+    Telefone AS T ON PA.Telefone_ID = T.Telefone_ID;
+
 ```
 
 **6** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa assoaciada que possui o mesmo **endereço**.
