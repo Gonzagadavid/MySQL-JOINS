@@ -821,7 +821,7 @@ FROM
 ```
 &nbsp;
 
-**6** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa associada que possui o mesmo **endereço**. Porém, não deixe que o mesmo nome se repita na mesma linha.
+**6** - Crie uma query que retorne **duas coluna** com os **nomes** das pessoas associadas que possuem o mesmo **endereço**. Porém, não deixe que o mesmo nome se repita na mesma linha.
 
 ```mysql
 USE academia;
@@ -838,7 +838,7 @@ WHERE
 ```
 &nbsp;
 
-**7** - Crie uma query que retorne **duas coluna** com o **nome** das pessoas treinadoras que possui o mesmo **endereço**. Porém, não deixe que o mesmo nome se repita na mesma linha.
+**7** - Crie uma query que retorne **duas coluna** com os **nomes** das pessoas treinadoras que possuem o mesmo **endereço**. Porém, não deixe que o mesmo nome se repita na mesma linha.
 
 ```mysql
 USE academia;
