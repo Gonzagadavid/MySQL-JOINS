@@ -21,14 +21,14 @@
 
 # O que vamos aprender?
 
-Hoje, você aprenderá a utilizar os principais **Joins** no **MySQL**, associando **duas ou mais tabelas**  com **dados relacionados** entre si, inclusive associar uma tabela com ela **mesma**, usando uma **determinada condição** de organização.  *Vamos lá!* :rocket:
+Hoje, você aprenderá a utilizar os principais **Joins** no **MySQL**, associando **duas ou mais tabelas**  com **dados relacionados** entre si, inclusive <u>associar uma tabela com ela **mesma**</u>, usando uma **determinada condição** de organização.  *Vamos lá!* :rocket:
 
 ---
 
 ## Você será capaz de:  
 
-- Escrever queries combinando *informações* de duas tabelas utilizando o INNER JOIN;
-- Escrever queries combinando duas tabelas e preservando todas as informções de uma delas, utilizando LEFT JOIN ou RIGHT JOIN;
+- Escrever queries combinando *<u>informações</u>* de duas tabelas utilizando o INNER JOIN;
+- Escrever queries combinando duas tabelas e preservando todas as informações de uma delas, utilizando LEFT JOIN ou RIGHT JOIN;
 - Escrever queries utilizando os dados da mesma tabela como se fosse duas tabelas distintas;
 
 ---
@@ -38,15 +38,15 @@ Hoje, você aprenderá a utilizar os principais **Joins** no **MySQL**, associan
 
 O **banco de dados relacional** armazena diversas tabelas que **relaciona os dados entre si** e utiliza indicadores como referência. Sendo assim, as informações da qual você precisará para sua consulta, poderá estar em mais de uma tabela, surgindo a necessidade de unir duas ou mais tabelas em uma mesma query.
 
---- 
+---
 &nbsp;
 
 # JOIN
 
 
-  O JOIN  tem um grande papel no banco de dados relacionais, sendo utilizado no SQL para trabalhar com dados de duas tabelas ou mais.
+  O JOIN tem um grande papel no banco de dados relacionais, sendo utilizado no SQL para trabalhar com dados de duas tabelas ou mais.
 
-Quer acompanhar os exemplos na sua máquina? 
+Quer acompanhar os exemplos na sua <u>máquina</u>? 
 
 Execute o SQLScript abaixo no seu MYSQL Workbench!
 
@@ -118,16 +118,19 @@ INSERT INTO ComicCenter.Revista (Revista_id, Titulo, Editora)
          (5, 'Homem Aranha', 'Marvel'),
          (6, 'Mulher Maravilha', 'Dc Comics');
   ```
---- 
+
+
+---
 &nbsp;
 
 # INNER JOIN
 
 ## Situação a qual será aplicado o INNER JOIN entre duas tabelas
 
-Imagine que você precisará consultar o telefone de pessoas clientes através do nome e essas informações(nome e telefone) estão em tabelas diferentes em no banco de dados, dessa forma:
+Imagine que você precisará consultar o telefone de pessoas clientes através do nome e essas informações(nome e telefone) estão em tabelas diferentes <u>no</u> banco de dados, dessa forma:
 
 **Tabela Cliente:** 
+
 | Cliente_id | Nome               |
 | :---------:| :----------------: |
 | 1          | Sheldon Cooper     |
@@ -151,7 +154,7 @@ Agora, consegue visualizar a dificuldade de associar o número de telefone ao no
 
 ## Primeiros passos para o uso do INNER JOIN
 
-Ao trabalhar com duas ou mais tabelas você precisará se atentar com as colunas que possuem o mesmo nome, nesse caso seria a coluna Cliente_id. Se não informar de qual tabela será extraída essa informação, um erro de ambiguidade será gerado!  
+Ao trabalhar com duas ou mais tabelas você precisará se atentar com as colunas que possuem o mesmo nome, nesse caso seria a coluna Cliente_id. Se não informar de qual tabela será <u>extraída</u> essa informação, um erro de ambiguidade será gerado!  
 
 ```shell
   Error Code: 1052. Column 'Cliente_id' in field list is ambiguous
@@ -174,7 +177,7 @@ Dessa forma, o ínicio da sua query, onde é informado as colunas a serem exibid
 
 ## Usando o INNER JOIN com duas tabelas
 
-Para unir as duas tabelas através das informações a qual a mesmas se relacionam é necessário informar qual das colunas devem ser usadas como referência para a união dessas informações através do ON,  nesse caso seria a coluna Cliente_id.
+Para unir as duas tabelas através das informações a qual a mesmas se relacionam é necessário informar qual das colunas devem ser usadas como <u>referência</u> para a união dessas informações através do O<u>N,</u>  nesse caso seria a coluna Cliente_id.
 
 &nbsp;
 
@@ -205,7 +208,7 @@ Retornando a seguinte tabela:
 
 ## AS - Alias para tabelas
 
-No bloco passado *(bloco 19)*, você aprendeu a usar o alias(AS) para nomear colunas em suas queries, porém também pode ser usado para nomear tabelas, se tornado um bom uso para essa situação, tornando sua query menos verbosa:
+No bloco passado *(bloco 19)*, você aprendeu a usar o alias(AS) para nomear colunas em suas queries, <u>porém também</u> pode ser usado para nomear tabelas, se tornado um bom uso para essa situação, tornando sua query menos verbosa:
 
 &nbsp;
 
@@ -221,7 +224,7 @@ FROM
 ON
     C.Cliente_id = T.Cliente_id;
 ```
-*Usar a primeira letra ou uma abreviação do nome da tabela como alias é muito comum e uma ótima opção*
+*Usar a primeira letra ou uma abreviação do nome da tabela como <u>aliás</u> é muito comum e uma ótima opção*
 
 &nbsp;
 
@@ -272,7 +275,7 @@ Imagine que você precisará consultar o telefone e o e-mail de pessoas clientes
 
 ## Usando o INNER JOIN com mais de duas tabelas
 
-Para usar mais de um INNER JOIN na mesma query, basta adicioná-lo logo depois do primeiro, usando no **ON** a coluna relacionada a uma coluna de qualquer tabela declarada anteriormente.
+Para usar mais de um INNER JOIN na mesma query, basta <u>adicioná-lo</u> logo depois do primeiro, usando no **ON** a coluna relacionada a uma coluna de qualquer tabela declarada anteriormente.
 
 &nbsp;
 
@@ -427,9 +430,9 @@ INSERT INTO final_space_db.Character(
 
 **3** - Agora, retorne o **nome do personagem**, **sua espécie** e o **lugar de origem** em uma query.
 
-**4** - Escreva uma query que retornará **uma coluna** com o **nome da espécie**, nomeie como `Especie,` e **uma coluna** com a **quantidade de personagens daquela espécie**, nomeie como `Quantidade`. Por fim,  **organize a lista** de forma **ascendente** pela quantidade.
+**4** - Escreva uma query que retornará **uma coluna** com o **nome da espécie**, nomeie como `Especie,` e **uma coluna** com a **quantidade de personagens daquela espécie**, nomeie como `Quantidade`. Por fim,  **organize a lista** de forma **ascendente** <u>pela quantidade.</u>
 
-**5** - Escreva uma query que retorne **uma coluna** com o **nome do Local**, nomeie como `Local de origem,` e **uma coluna** com **quantidade de personagens** que tenham origem desse local, nomeie como `Quantidade`. Por fim, **organize a lista** de forma **decrescente** pela quantidade.
+**5** - Escreva uma query que retorne **uma coluna** com o **nome do Local**, nomeie como `Local de origem,` e **uma coluna** com **quantidade de personagens** que tenham origem desse local, nomeie como `Quantidade`. Por fim, **organize a lista** de forma **decrescente** <u>pela quantidade</u>.
 
 **6** - Escreva uma query que **retorne os nomes dos personagens** que tem como **local de origem 'Earth'**. Por fim, **organize** os nomes em **ordem alfabética**.
 
@@ -462,7 +465,7 @@ Para entender LEFT JOIN e RIGHT JOIN, observe as duas tabelas a seguir:
 
 Note que algumas pessoas que estão na tabela Cliente, também estão na tabela Funcionário.
 
-Para identificar essas pessoas basta utilizar o INNER JOIN:
+Para <u>identificar</u> essas pessoas, basta utilizar o INNER JOIN:
 
 &nbsp;
 
@@ -493,7 +496,7 @@ Obeserve que o INNER JOIN retornou apenas as pessoas que estão nas duas tabelas
 
 ## Situação a qual será aplicado o LEFT JOIN
 
-Agora, imagine que você precise de uma consulta que retorne os dados de todas as pessoas clientes, pessoa funcionaria ou não.  Caso seja pessoa funcionaria, você deseja que os dados da tabela Funcionario dessa pessoa sejam exibidos.  
+Agora, imagine que você precise de uma consulta que retorne os dados de todas as pessoas clientes, pessoa funcionaria ou não.  Caso seja pessoa funcionaria, você deseja que os dados da tabela <u>Funcionário</u> dessa pessoa sejam exibidos.  
 
 ## Usando o LEFT JOIN
 
@@ -528,7 +531,7 @@ ON
 
 ## Situação a qual será aplicado o RIGHT JOIN
 
-Imagine que você queira que sua consulta retorne os dados de todas as pessoas funcionárias, pessoa cliente ou não. Caso seja pessoa cliente, você deseja que os dados da tabela Ciente dessa pessoa sejam exibidos.
+Imagine que você queira que sua consulta retorne os dados de todas as pessoas <u>funcionárias</u>, pessoa cliente ou não. Caso seja pessoa cliente, você deseja que os dados da tabela Ciente dessa pessoa sejam exibidos.
 
 ## Usando o RIGHT JOIN
 
@@ -564,7 +567,7 @@ ON
 
 ## Usando IFNULL
 
-Se você deseja substituir os valores NULL por outro valor, basta utilizar a função IFNULL. Você deve passar a coluna como primeiro parâmetro e o valor a ser atribuído para os campos preenchidos com  NULL, como segundo parâmetro. Segue alguns exemplos: 
+Se você deseja substituir os valores NULL por outro valor, basta utilizar a função IFNULL. Você deve passar a coluna como primeiro parâmetro e o valor a ser <u>atribuído</u> para os campos preenchidos com  NULL, como segundo parâmetro. Segue alguns exemplos: 
 
 ### Utilizando IFNULL no LEFT JOIN
 
@@ -625,17 +628,17 @@ FROM
 
 Usando o banco de dados final_space_db, resolva os exercicios abaixo:
 
-**1** - Escreva uma query que exiba os **nomes de todos os personagens e sua espécie**. 
+**1** - Escreva uma query que exiba os **nomes de todos <u>os personagens</u> e sua espécie**. 
 *Observação: O nome de todos os personagens deve aparecer,  inclusive os que não tem uma espécie definida.*
 
-**2** - Escreva uma query que exiba os **nomes de todos os personagens** e seu **local de origem**.
+**2** - Escreva uma query que exiba os **nomes de todos os <u>personagens**</u> e seu **local de origem**.
 *Observação: O nome de todos os personagens deve aparecer, inclusive os que não tem um local de origem definido.*
 
 **3** - Escreva uma query que mostre **nome do personagem** e  **nome de todas as espécies**, mesmo as que não possuem personagem com aquela espécie.
 
 **4** - Escreva uma query que retorne **nome do personagem** e  **nome de todos locais de origem**, inclusive os personagens sem origem desse local.
 
-**5** - Escreva uma query que exiba **nomes de todos os personagens** e **sua espécie**. Se o personagem não tiver espécie definida, o campo da espécie deverá mostrar 'Unknown'. Por fim, nomeie a coluna espécie de 'Specie' e a coluna nomes dos personagens de 'Character'.
+**5** - Escreva uma query que exiba **nomes de todos os person<u>agens</u>** e **sua espécie**. Se o personagem não tiver espécie definida, o campo da espécie deverá mostrar 'Unknown'. Por fim, nomeie a coluna espécie de 'Specie' e a coluna nomes dos personagens de 'Character'.
 
 **6** - Escreva uma query que retorne **nome do personagem**  e  **nome de todos locais de origem**. Nomeie  coluna nome do personagem de 'Character' e coluna do local de 'Local'. 
 Caso não houver personagem com origem do local, o campo que apresentaria no nome do personagem deve mostrar 'Unknown'.
@@ -706,7 +709,7 @@ WHERE
 
 &nbsp;
 
-Note que os Títulos que repetiram na mesma linha, ou seja ele se comparou consigo mesmo, isso pode ser corrigido através do **WHERE**.
+Note que os <u>Títulos</u> que repetiram na mesma linha, ou seja ele se comparou consigo mesmo, isso pode ser corrigido através do **WHERE**.
 
 &nbsp;
 
@@ -749,9 +752,9 @@ Usando o banco de dados final_space_db, resolva os exercicios abaixo:
 
 **2** - Escreva uma query que exiba **nomes dos personagens** em uma coluna e **nomes dos personagens** com **mesmo local de origem** na coluna ao lado. Agora, sem que nome do personagem apareça duas vezes na mesma linha.
 
-**3** - Escreva uma query que exiba **nomes dos personagens** em uma coluna e **nomes dos personagens da mesma espécie** na coluna ao lado.
+**3** - Escreva uma query que exiba **nomes dos personagens** em uma coluna e **<u>nomes dos personagens da mesma espécie</u>** na coluna ao lado.
 
-**4** - Escreva uma query que exiba **nomes dos personagens** em uma coluna e **nomes dos personagens da mesma espécie** na coluna ao lado. Agora, sem que nome do personagem apareça duas vezes na mesma linha.
+**4** - Escreva uma query que exiba **nomes dos personagens** em uma coluna e **<u>nomes dos personagens da mesma espécie</u>** na coluna ao lado. Agora, sem que nome do personagem apareça duas vezes na mesma linha.
 
 ---
 &nbsp;
@@ -760,7 +763,7 @@ Usando o banco de dados final_space_db, resolva os exercicios abaixo:
 
 ## Exercícios
 
-Para resolver os exercícios, será o usado o banco de dados academia:
+Para resolver os exercíci<u>os, se</u>rá usado o banco de dados academia:
 
 ```mysql
 DROP SCHEMA IF EXISTS academia ;
@@ -1086,7 +1089,7 @@ INSERT INTO academia.Treino (
 ```
 &nbsp;
 
-**1** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com o **logradouro**  e outra com o **número**. Utilize as tabelas Pessoa_Associada e Endereco.
+**1** - Crie uma query que retorne **uma coluna** nomeada de 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com o **logradouro**  e outra com o **<u>número</u>**. Utilize as tabelas Pessoa_Associada e Endereco.
 
 &nbsp;
 
@@ -1094,35 +1097,35 @@ INSERT INTO academia.Treino (
 
 &nbsp;
 
-**3** - Escreva uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com **telefone** e outra com o **cep** dessa pessoa. Utilize as tabelas Pessoa_Associada, Telefone e Endereco.
+**3** - Escreva uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com **telefone** e outra com o **cep** dessa pessoa. Utilize as tabelas Pessoa_Associada, Telefone e <u>Endereço</u>.
 
 &nbsp;
 
-**4** - Escreva uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com **telefone de contato** e outra com o **cep** dessa pessoa. Utilize as tabelas Pessoa_Associada, Telefone e Endereco.
+**4** - Escreva uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com **telefone de contato** e outra com o **cep** dessa pessoa. Utilize as tabelas Pessoa_Associada, Telefone e <u>Endereço</u>.
 
 &nbsp;
 
-**5** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia, e **uma coluna** com o **telefone de emergência** dessa pessoa, caso a pessoa não tiver telefone de emergência, exiba 'PEDENTE', nomeie essa coluna como 'Telefone de Emergência'. Utilize as tabelas Pessoa_Associada e Telefone.
+**5** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia, e **uma coluna** com o **telefone de emergência** dessa pessoa, caso a pessoa não tiver telefone de <u>emergência</u>, exiba 'PEDENTE', nomeie essa coluna como 'Telefone de Emergência'. Utilize as tabelas Pessoa_Associada e Telefone.
 
 &nbsp;
 
-**6** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa associada que possui o mesmo **endereço**. Porém, não deixe que o mesmo nome se repita na mesma linha.
+**6** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa <u>associada</u> que possui o mesmo **endereço**. Poré<u>m, n</u>ão deixe que o mesmo nome se repita na mesma linha.
 
 &nbsp;
 
-**7** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa treinadora que possui o mesmo **endereço**. Porém, não deixe que o mesmo nome se repita na mesma linha.
+**7** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa treinadora que possui o mesmo **endereço**. Poré<u>m, n</u>ão deixe que o mesmo nome se repita na mesma linha.
 
 &nbsp;
 
-**8** - Crie uma query que retorne **uma coluna** com o **nome dos planos** outra que com a **quantidade** de pessoas associadas que possuem esse plano, nomeie como 'Pessoas Inclusas'.
+**8** - Crie uma query que retorne **uma coluna** o **nome dos planos** outra que com a **quantidade** de pessoas associadas que possuem esse plano, nomeie como 'Pessoas Inclusas'.
 
 &nbsp;
 
-**9** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo', com o **nome completo** das pessoas associadas a academia, e **uma coluna** com o **período** dessa pessoa. Utilize as tabelas Pessoa_Associada, Treino e Horario.
+**9** - <u>Crie uma query que retorne **uma coluna**, nomeada como 'Nome Completo', com o **nome completo** das pessoas associadas a academia e **uma coluna** com o **período** dessa pessoa. Utilize as tabelas Pessoa_Associada, Treino e Horário.</u>
 
 &nbsp;
 
-**10** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia e **uma coluna** com o nome 'Horario', mostrando o **período** dessa pessoa. Caso a pessoa não tiver período estipulado, exiba 'LIVRE'. Utilize as tabelas Pessoa_Associada, Aula e Horario.
+**<u>10** - Crie uma query que retorne **uma coluna**, nomeada como 'Nome Completo', com o **nome completo** de **todas** as pessoas associadas a academia e **uma coluna** com o nome 'Horário', mostrando o **período** dessa pessoa. Caso a pessoa não tiver período estipulado, exiba 'LIVRE'. Utilize as tabelas Pessoa_Associada, Aula e Horário.</u>
 
 &nbsp;
 
@@ -1130,21 +1133,21 @@ INSERT INTO academia.Treino (
 
 ## Bonus
 
-Para resolver os exercícios bonus use o banco de dados academia.
+Para resolver <u>os</u> exercícios bonus, use o banco de dados academia.
 
-**1** - Mostre o **nome da pessoa treinadora** e a **modalidade** em que atua, de modo que a mesma informação não se repita na tabela. Use as tabelas Pessoa_Treinadora, Aula, Modalidade.
-
-&nbsp;
-
-**2** - Retorne o **nome da pessoa treinadora** e o **período** em que atua. Utilize as tabelas Pessoa_Treinadora, Aula, Horario.
+**<u>1** - Mostre  **nome da pessoa treinadora** e a **modalidade** em que atua, de modo que a mesma informação não se repita na tabela. Use as tabelas Pessoa_Treinadora, Aula, Modalidade.</u>
 
 &nbsp;
 
-**3** - Retorne o **nome de todas pessoas treinadoras** e uma coluna com o nome 'Horario', mostrando o **período** em que a pessoa atua. Caso não tenha um horário estipulado, mostre 'EVENTUAL'. Por fim, ordene em forma **alfabética-invertida** pelo nome da pessoa. Utilize as tabelas Pessoa_Treinadora, Aula, Horario.
+**2** - Retorne o **nome da pessoa treinadora** e o **<u>período</u>** em que atua. Utilize as tabelas Pessoa_Treinadora, Aula, <u>Horário</u>.
 
 &nbsp;
 
-**4** - Retorne o **nome da modalidade** e a quantidade de pessoas que a praticam, nomeie essa coluna como 'Pessoas' e ordena por essa coluna em ordem crescente. Utilize as Tabelas Modalidade e Treino.
+**3** - Retorne o **nome de todas pessoas treinadoras** e uma coluna com o nome '<u>Horário</u>', mostrando o **<u>período</u>** em que a pessoa atu<u>a. C</u>aso não tenha um <u>horário</u> estipulado, mostre 'EVENTUAL'. <u>Por fim,</u> ordene em forma **alfabética-invertida** pelo nome da pessoa. Utilize as tabelas Pessoa_Treinadora, Aula, <u>Horário</u>.
+
+&nbsp;
+
+**4** - Retorne o **nome da modalidade** e a quantidade de pessoas que a praticam, nomeie essa coluna como 'Pessoas' e ordena por essa coluna em ordem crescente. Utilize as Tabelas <u>Modalidade</u> e Treino.
 
 &nbsp;
 
@@ -1153,7 +1156,7 @@ nomeie essa coluna como 'Pessoas'. Utilize as tabelas Pessoa_Treinadora, Treino,
 
 &nbsp;
 
-**6** - Escreva uma query que retorne o **nome da pessoa associada** e o **nome da pessoa treinadora** responável pelo seu treino de acordo com a modalidade e o horário.
+**6** - Escreva uma query que retorne o **nome da pessoa associada** e o **nome da pessoa treinadora** <u>responsável</u> pelo seu treino de acordo com a modalidade e o <u>horário</u>.
 
 ---
 &nbsp;
@@ -1164,6 +1167,7 @@ Além dos JOINS usados nessa aula, existem outros, os links abaixo mostrará, ca
 
 - Além dos que JOINS apresentados no conteúdo, esse material também fala sobre o CROSS JOIN - [MySQLTutorial](https://www.mysqltutorial.org/mysql-join/)
 
-- Esse conteúdo contem exemplos e exercícios - [W3SCHOOLS](https://www.w3schools.com/sql/sql_join.asp)
+- Esse conteúdo contem exemplos e <u>exercícios</u> - [W3SCHOOLS](https://www.w3schools.com/sql/sql_join.asp)
 
 - Documentação do MySQL sobre JOIN - [MySQL Documentation](https://dev.mysql.com/doc/refman/8.0/en/join.html)
+

@@ -166,7 +166,7 @@ FROM
 ```
 &nbsp;
 
-**4** - Escreva uma query que retornará **uma coluna** com o **nome da espécie**, nomeie como `Especie,` e **uma coluna** com a **quantidade de personagens daquela espécie**, nomeie como `Quantidade`. Por fim,  **organize a lista** de forma **ascendente** pela a quantidade.
+**4** - Escreva uma query que retornará **uma coluna** com o **nome da espécie**, nomeie como `Especie,` e **uma coluna** com a **quantidade de personagens daquela espécie**, nomeie como `Quantidade`. Por fim,  **organize a lista** de forma **ascendente** pela quantidade.
 
 ```mysql
   USE final_space_db;
@@ -182,7 +182,7 @@ ORDER BY Quantidade;
 ```
 &nbsp;
 
-**5** - Escreva uma query que retorne **uma coluna** com o **nome do Local**, nomeie como `Local de origem,` e **uma coluna** com **quantidade de personagens** que tenham origem desse local, nomeie como `Quantidade`. Por fim, **organize a lista** de forma **decrescente** pela a quantidade.
+**5** - Escreva uma query que retorne **uma coluna** com o **nome do Local**, nomeie como `Local de origem,` e **uma coluna** com **quantidade de personagens** que tenham origem desse local, nomeie como `Quantidade`. Por fim, **organize a lista** de forma **decrescente** pela quantidade.
 
 ```mysql
 USE final_space_db;
@@ -240,7 +240,7 @@ ORDER BY C.Name DESC;
 
 # LEFT JOIN e RIGHT JOIN
 
-**1** - Escreva uma query que exiba os **nomes de todos os personagem e sua espécie**. 
+**1** - Escreva uma query que exiba os **nomes de todos os personagens e sua espécie**. 
 *Observação: O nome de todos os personagens deve aparecer,  inclusive os que não tem uma espécie definida.*
 
 ```mysql
@@ -256,7 +256,7 @@ FROM
 ```
 &nbsp;
 
-**2** - Escreva uma query que exiba os **nomes de todos os personagem** e seu **local de origem**.
+**2** - Escreva uma query que exiba os **nomes de todos os personagens** e seu **local de origem**.
 *Observação: O nome de todos os personagens deve aparecer, inclusive os que não tem um local de origem definido.*
 
 ```mysql
@@ -300,7 +300,7 @@ FROM
 ```
 &nbsp;
 
-**5** - Escreva uma query que exiba **nomes de todos os personagem** e **sua espécie**. Se o personagem não tiver espécie definida, o campo da espécie deverá mostrar 'Unknown'. Por fim, nomeie a coluna espécie de 'Specie' e a coluna nomes dos personagens de 'Character'.
+**5** - Escreva uma query que exiba **nomes de todos os personagens** e **sua espécie**. Se o personagem não tiver espécie definida, o campo da espécie deverá mostrar 'Unknown'. Por fim, nomeie a coluna espécie de 'Specie' e a coluna nomes dos personagens de 'Character'.
 
 ```mysql
 USE final_space_db;
@@ -369,7 +369,7 @@ WHERE
 ```
 &nbsp;
 
-**3** - Escreva uma query que exiba **nomes dos personagens** em uma coluna e **nomes dos personagens das mesma espécie** na coluna ao lado.
+**3** - Escreva uma query que exiba **nomes dos personagens** em uma coluna e **nomes dos personagens da mesma espécie** na coluna ao lado.
 
 ```mysql
 USE final_space_db;
@@ -385,7 +385,7 @@ WHERE
 ```
 &nbsp;
 
-**4** - Escreva uma query que exiba **nomes dos personagens** em uma coluna e **nomes dos personagens das mesma espécie** na coluna ao lado. Agora, sem que nome do personagem apareça duas vezes na mesma linha.
+**4** - Escreva uma query que exiba **nomes dos personagens** em uma coluna e **nomes dos personagens da mesma espécie** na coluna ao lado. Agora, sem que nome do personagem apareça duas vezes na mesma linha.
 
 ```mysql
 USE final_space_db;
@@ -408,7 +408,7 @@ WHERE
 
 ## Exercícios
 
-Para resolver os exercícios, use o banco de dados academia:
+Para resolver os exercícios, será o usado o banco de dados academia:
 
 ```mysql
 DROP SCHEMA IF EXISTS academia ;
@@ -734,7 +734,7 @@ INSERT INTO academia.Treino (
 ```
 &nbsp;
 
-**1** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com o **logradouro**  e outra com o **numero**. Utilize as tabelas Pessoa_Associada e Endereco.
+**1** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com o **logradouro**  e outra com o **número**. Utilize as tabelas Pessoa_Associada e Endereco.
 
 ```mysql
 USE academia;
@@ -804,7 +804,7 @@ FROM
 ```
 &nbsp;
 
-**5** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia, e **uma coluna** com o **telefone de emergência** dessa pessoa, caso a pessoa não tiver telefone de emergencia, exiba 'PEDENTE', nomeie essa coluna como 'Telefone de Emergência'. Utilize as tabelas Pessoa_Associada e Telefone.
+**5** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia, e **uma coluna** com o **telefone de emergência** dessa pessoa, caso a pessoa não tiver telefone de emergência, exiba 'PEDENTE', nomeie essa coluna como 'Telefone de Emergência'. Utilize as tabelas Pessoa_Associada e Telefone.
 
 ```mysql
 USE academia;
@@ -820,7 +820,7 @@ FROM
 ```
 &nbsp;
 
-**6** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa assoaciada que possui o mesmo **endereço**. Porém não deixe que o mesmo nome se repita na mesma linha.
+**6** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa associada que possui o mesmo **endereço**. Porém, não deixe que o mesmo nome se repita na mesma linha.
 
 ```mysql
 USE academia;
@@ -837,7 +837,7 @@ WHERE
 ```
 &nbsp;
 
-**7** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa treinadora que possui o mesmo **endereço**. Porém não deixe que o mesmo nome se repita na mesma linha.
+**7** - Crie uma query que retorne **uma coluna** com o **nome** outra que com o **nome** da pessoa treinadora que possui o mesmo **endereço**. Porém, não deixe que o mesmo nome se repita na mesma linha.
 
 ```mysql
 USE academia;
@@ -870,7 +870,7 @@ GROUP BY Nome_Plano;
 ```
 &nbsp;
 
-**9** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, e **uma coluna** com o **periodo** dessa pessoa. Utilize as tabelas Pessoa_Associada, Treino e Horario.
+**9** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo', com o **nome completo** das pessoas associadas a academia, e **uma coluna** com o **período** dessa pessoa. Utilize as tabelas Pessoa_Associada, Treino e Horario.
 
 ```mysql
 USE academia;
@@ -888,7 +888,7 @@ FROM
 ```
 &nbsp;
 
-**10** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia, e **uma coluna** com o nome 'Horario', mostrando o **periodo** dessa pessoa, caso a pessoa não tiver periodo estipulado, exiba 'LIVRE'. Utilize as tabelas Pessoa_Associada, Aula e Horario.
+**10** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia e **uma coluna** com o nome 'Horario', mostrando o **período** dessa pessoa. Caso a pessoa não tiver período estipulado, exiba 'LIVRE'. Utilize as tabelas Pessoa_Associada, Aula e Horario.
 
 ```mysql
 USE academia;
@@ -908,9 +908,9 @@ FROM
 
 ## Bonus
 
-Para resolver o exercícios bonus use o banco de dados academia.
+Para resolver os exercícios bonus use o banco de dados academia.
 
-**1** - Moste a o **nome da pessoa treinadora** e a **modalidade** em que atua, de modo que a mesma informação não se repita na tabela. Use as tabelas Pessoa_Treinadora, Aula, Modalidade.
+**1** - Mostre o **nome da pessoa treinadora** e a **modalidade** em que atua, de modo que a mesma informação não se repita na tabela. Use as tabelas Pessoa_Treinadora, Aula, Modalidade.
 
 ```mysql
 USE academia;
@@ -927,7 +927,7 @@ FROM
 ```
 &nbsp;
 
-**2** - Retorne o **nome da pessoa treinadora** e o **periodo** em que atua. Utilize as tabelas Pessoa_Treinadora, Aula, Horario.
+**2** - Retorne o **nome da pessoa treinadora** e o **período** em que atua. Utilize as tabelas Pessoa_Treinadora, Aula, Horario.
 
 ```mysql
 USE academia;
@@ -944,7 +944,7 @@ FROM
 ```
 &nbsp;
 
-**3** - Retorne o **nome de todas pessoas treinadoras** e uma coluna com o nome 'Horario', mostrando o **periodo** em que a pessoa atua, caso não tenha um horario estipulado, mostre 'EVENTUAL', ordene em forma **alfabética-invertida** pelo nome da pessoa. Utilize as tabelas Pessoa_Treinadora, Aula, Horario.
+**3** - Retorne o **nome de todas pessoas treinadoras** e uma coluna com o nome 'Horario', mostrando o **período** em que a pessoa atua. Caso não tenha um horário estipulado, mostre 'EVENTUAL'. Por fim, ordene em forma **alfabética-invertida** pelo nome da pessoa. Utilize as tabelas Pessoa_Treinadora, Aula, Horario.
 
 ```mysql
 USE academia;
@@ -962,7 +962,7 @@ FROM
 ```
 &nbsp;
 
-**4** - Retorne o **nome da modalidade** e a quantidade de pessoas que a praticam, nomeie essa coluna como 'Pessoas' e ordena por essa coluna em ordem crescente. Utilize as Tabelas Modalidae e Treino.
+**4** - Retorne o **nome da modalidade** e a quantidade de pessoas que a praticam, nomeie essa coluna como 'Pessoas' e ordena por essa coluna em ordem crescente. Utilize as Tabelas Modalidade e Treino.
 
 ```mysql
 USE academia;
@@ -999,7 +999,7 @@ GROUP BY PT.Nome;
 ```
 &nbsp;
 
-**6** - Escreva uma query que retorne o **nome da pessoa associada** e o **nome da pessoa treinadora** responsavel pelo seu treino de acordo com a modalidade e o horario.
+**6** - Escreva uma query que retorne o **nome da pessoa associada** e o **nome da pessoa treinadora** responável pelo seu treino de acordo com a modalidade e o horário.
 
 ```mysql
 USE academia;
