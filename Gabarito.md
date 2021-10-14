@@ -623,23 +623,75 @@ FROM
 ```
 &nbsp;
 
-**3** - Retorne o **nome de todas pessoas treinadoras** e o **periodo** em que atua, caso não tenha um horario estipulado, mostre 'EVENTUAL'. Utilize as tabelas Pessoa_Treinadora, Aula, Horario.
+**3** - Retorne o **nome de todas pessoas treinadoras** e uma coluna com o nome 'Horario', mostrando o **periodo** em que a pessoa atua, caso não tenha um horario estipulado, mostre 'EVENTUAL', ordene em forma **alfabética-invertida** pelo nome da pessoa. Utilize as tabelas Pessoa_Treinadora, Aula, Horario.
 
 ```mysql
+USE academia;
+
+SELECT 
+    PT.Nome, IFNULL(H.Periodo, 'EVENTUAL') AS 'Horario'
+FROM
+    Pessoa_Treinadora AS PT
+        LEFT JOIN
+    Aula AS A ON PT.Pessoa_Treinadora_ID = A.Pessoa_Treinadora_ID
+        LEFT JOIN
+    Horario AS H ON A.Horario_ID = H.Horario_ID
+        order by PT.Nome DESC;
 
 ```
 &nbsp;
 
-**4** - Retorne o **nome da modalidade** e a quantidade de pessoas que a praticam, nomeie essa coluna como 'Pessoas'. Utilize as Tabelas Modalidae e Treino.
+**4** - Retorne o **nome da modalidade** e a quantidade de pessoas que a praticam, nomeie essa coluna como 'Pessoas' e ordena por essa coluna em ordem crescente. Utilize as Tabelas Modalidae e Treino.
 
 ```mysql
+USE academia;
+
+SELECT 
+    M.Nome_modalidade, COUNT(T.Pessoa_Associada_ID) AS `Pessoas`
+FROM
+    Modalidade AS M
+        INNER JOIN
+    Treino AS T ON M.Modalidade_ID = T.Modalidade_ID
+GROUP BY M.Nome_Modalidade
+ORDER BY Pessoas;
 
 ```
 &nbsp;
 
-**5** - Retorne o **nome da pessoa treinadora** e a quantidade de pessoas associadas que participam de suas aulas. Utilize as tabelas Pessoa_Treinadora, Treino, Aula.
+**5** - Retorne o **nome da pessoa treinadora** e a quantidade de **pessoas associadas** que participam de suas aulas,
+nomeie essa coluna como 'Pessoas'. Utilize as tabelas Pessoa_Treinadora, Treino, Aula.
 
 ```mysql
+USE academia;
+
+SELECT 
+    PT.Nome, COUNT(T.Pessoa_Associada_ID) AS `Pessoas`
+FROM
+    Pessoa_Treinadora AS PT
+        INNER JOIN
+    Aula AS A ON A.Pessoa_Treinadora_ID = PT.Pessoa_Treinadora_ID
+        INNER JOIN
+    Treino AS T ON T.Modalidade_ID = A.Modalidade_ID
+        AND T.Horario_ID = A.Horario_ID
+GROUP BY PT.Nome;
 
 ```
 &nbsp;
+
+**6** - Escreva uma query que retorne o **nome da pessoa associada** e o **nome da pessoa treinadora** responsavel pelo seu treino de acordo com a modalidade e o horario.
+
+```mysql
+USE academia;
+
+SELECT 
+    PT.Nome, COUNT(T.Pessoa_Associada_ID) AS `Pessoas`
+FROM
+    Pessoa_Treinadora AS PT
+        INNER JOIN
+    Aula AS A ON A.Pessoa_Treinadora_ID = PT.Pessoa_Treinadora_ID
+        INNER JOIN
+    Treino AS T ON T.Modalidade_ID = A.Modalidade_ID
+        AND T.Horario_ID = A.Horario_ID
+GROUP BY PT.Nome;
+
+```
