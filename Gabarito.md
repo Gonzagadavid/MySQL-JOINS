@@ -609,6 +609,16 @@ FROM
 **2** - Retorne o **nome da pessoa treinadora** e o **periodo** em que atua. Utilize as tabelas Pessoa_Treinadora, Aula, Horario.
 
 ```mysql
+USE academia;
+
+SELECT
+    PT.Nome, H.Periodo
+FROM
+    Pessoa_Treinadora AS PT
+        INNER JOIN
+    Aula AS A ON PT.Pessoa_Treinadora_ID = A.Pessoa_Treinadora_ID
+        INNER JOIN
+    Horario AS H ON A.Horario_ID = H.Horario_ID
 
 ```
 &nbsp;
