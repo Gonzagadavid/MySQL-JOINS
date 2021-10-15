@@ -923,12 +923,12 @@ FROM
         INNER JOIN
     Aula AS A ON PT.Pessoa_Treinadora_ID = A.Pessoa_Treinadora_ID
         INNER JOIN
-    Modalidade AS M ON A.Modalidade_ID = M.Modalidade_ID
+    Modalidade AS M ON A.Modalidade_ID = M.Modalidade_ID;
 
 ```
 &nbsp;
 
-**2** - Retorne o **nome da pessoa treinadora** e o **período** em que atua. Utilize as tabelas Pessoa_Treinadora, Aula, Horario.
+**2** - Retorne o **nome da pessoa treinadora** e o **período** em que atua. Utilize as tabelas Pessoa_Treinadora, Aula e Horario.
 
 ```mysql
 USE academia;
@@ -940,12 +940,12 @@ FROM
         INNER JOIN
     Aula AS A ON PT.Pessoa_Treinadora_ID = A.Pessoa_Treinadora_ID
         INNER JOIN
-    Horario AS H ON A.Horario_ID = H.Horario_ID
+    Horario AS H ON A.Horario_ID = H.Horario_ID;
 
 ```
 &nbsp;
 
-**3** - Retorne o **nome de todas pessoas treinadoras** e uma coluna com o nome 'Horario', mostrando o **período** em que a pessoa atua. Caso não tenha um horário estipulado, mostre 'EVENTUAL'. Por fim, ordene em forma **alfabética-invertida** pelo nome da pessoa. Utilize as tabelas Pessoa_Treinadora, Aula, Horario.
+**3** - Retorne o **nome de todas pessoas treinadoras** e uma coluna com o nome 'Horario', mostrando o **período** em que a pessoa atua. Caso não tenha um horário estipulado, mostre 'EVENTUAL'. Por fim, ordene em forma **alfabética-invertida** pelo nome da pessoa. Utilize as tabelas Pessoa_Treinadora, Aula e Horario.
 
 ```mysql
 USE academia;
@@ -963,12 +963,12 @@ FROM
 ```
 &nbsp;
 
-**4** - Retorne o **nome da modalidade** e a quantidade de pessoas que a praticam, nomeie essa coluna como 'Pessoas' e ordena por essa coluna em ordem crescente. Utilize as Tabelas Modalidade e Treino.
+**4** - Retorne o **nome da modalidade** e a quantidade de pessoas que a praticam, nomeie essa última coluna como 'Pessoas' e a ordene em ordem crescente. Utilize as Tabelas Modalidade e Treino.
 
 ```mysql
 USE academia;
 
-SELECT 
+SELECT
     M.Nome_modalidade, COUNT(T.Pessoa_Associada_ID) AS `Pessoas`
 FROM
     Modalidade AS M
@@ -981,7 +981,7 @@ ORDER BY Pessoas;
 &nbsp;
 
 **5** - Retorne o **nome da pessoa treinadora** e a quantidade de **pessoas associadas** que participam de suas aulas,
-nomeie essa coluna como 'Pessoas'. Utilize as tabelas Pessoa_Treinadora, Treino, Aula.
+nomeie essa última coluna como 'Pessoas'. Utilize as tabelas Pessoa_Treinadora, Treino e Aula.
 
 ```mysql
 USE academia;
@@ -1000,20 +1000,21 @@ GROUP BY PT.Nome;
 ```
 &nbsp;
 
-**6** - Escreva uma query que retorne o **nome da pessoa associada** e o **nome da pessoa treinadora** responável pelo seu treino de acordo com a modalidade e o horário.
+**6** - Escreva uma query que retorne o **nome da pessoa associada** e o **nome da pessoa treinadora** responsável pelo seu treino de acordo com a modalidade e o horário.
 
 ```mysql
 USE academia;
 
 SELECT 
-    PT.Nome, COUNT(T.Pessoa_Associada_ID) AS `Pessoas`
+    PA.Nome, PT.Nome
 FROM
-    Pessoa_Treinadora AS PT
+    Pessoa_Associada AS PA
         INNER JOIN
-    Aula AS A ON A.Pessoa_Treinadora_ID = PT.Pessoa_Treinadora_ID
+    Treino AS T ON PA.Pessoa_Associada_ID = T.Pessoa_Associada_ID
         INNER JOIN
-    Treino AS T ON T.Modalidade_ID = A.Modalidade_ID
+    Aula AS A ON T.Modalidade_ID = A.Modalidade_ID
         AND T.Horario_ID = A.Horario_ID
-GROUP BY PT.Nome;
+        INNER JOIN
+    Pessoa_Treinadora AS PT ON A.Pessoa_Treinadora_ID = PT.Pessoa_Treinadora_ID;
 
 ```
