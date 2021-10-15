@@ -13,7 +13,7 @@
 - [INNER JOIN](#inner-join)  
 - [LEFT JOIN e RIGHT JOIN](#left-join-e-right-join)  
 - [SELF JOIN](#self-join)  
-- [Vamos praticar!](#vamos-praticar)  
+- [Vamos praticar!](#vamos-praticar!)  
 - [Recursos Adicionais](#recursos-adicionais)  
 
 ---
