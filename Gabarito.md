@@ -736,7 +736,7 @@ INSERT INTO academia.Treino (
 ```
 &nbsp;
 
-**1** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com o **logradouro**  e outra com o **número**. Utilize as tabelas Pessoa_Associada e Endereco.
+**1** - Crie uma query que retorne **uma coluna**, nomeada como 'Nome Completo', com o **nome completo** das pessoas associadas a academia, **uma coluna** com o **logradouro**  e outra com o **número**. Utilize as tabelas Pessoa_Associada e Endereco.
 
 ```mysql
 USE academia;
@@ -753,7 +753,7 @@ FROM
 ```
 &nbsp;
 
-**2** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas instrutoras da academia, **uma coluna** com o **logradouro**  e outra com o **numero**. Utilize as tabelas Pessoa_Treinadora e Endereco.
+**2** - Crie uma query que retorne **uma coluna**, nomeada como 'Nome Completo', com o **nome completo** das pessoas instrutoras da academia, **uma coluna** com o **logradouro**  e outra com o **numero**. Utilize as tabelas Pessoa_Treinadora e Endereco.
 
 ```mysql
 USE academia;
@@ -770,7 +770,7 @@ FROM
 ```
 &nbsp;
 
-**3** - Escreva uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com **o nome do plano** dessa pessoa. Utilize as tabelas Pessoa_Associada e Plano.
+**3** - Escreva uma query que retorne **uma coluna**, nomeada como 'Nome Completo', com o **nome completo** das pessoas associadas a academia e **uma coluna** com **o nome do plano** dessa pessoa. Utilize as tabelas Pessoa_Associada e Plano.
 
 ```mysql
 USE academia;
@@ -786,7 +786,7 @@ FROM
 ```
 &nbsp;
 
-**4** - Escreva uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** das pessoas associadas a academia, **uma coluna** com **telefone de contato** e outra com o **cep** dessa pessoa. Utilize as tabelas Pessoa_Associada, Telefone e Endereco.
+**4** - Escreva uma query que retorne **uma coluna** com o **nome completo** das pessoas associadas a academia, nomeada como 'Nome Completo', **uma coluna** com **telefone de contato** e outra com o **cep** dessa pessoa. Utilize as tabelas Pessoa_Associada, Telefone e Endereco.
 
 ```mysql
 USE academia;
@@ -805,7 +805,7 @@ FROM
 ```
 &nbsp;
 
-**5** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia, e **uma coluna** com o **telefone de emergência** dessa pessoa, caso a pessoa não tiver telefone de emergência, exiba 'PEDENTE', nomeie essa coluna como 'Telefone de Emergência'. Utilize as tabelas Pessoa_Associada e Telefone.
+**5** - Crie uma query que retorne **uma coluna**, nomeada como 'Nome Completo', com o **nome completo** de **todas** as pessoas associadas a academia e **uma coluna** com o **telefone de emergência** dessa pessoa, nomeie essa coluna como 'Telefone de Emergência'. Caso a pessoa não tenha telefone de emergência, exiba 'PEDENTE'. Utilize as tabelas Pessoa_Associada e Telefone.
 
 ```mysql
 USE academia;
@@ -821,7 +821,7 @@ FROM
 ```
 &nbsp;
 
-**6** - Crie uma query que retorne **duas coluna** com os **nomes** das pessoas associadas que possuem o mesmo **endereço**. Porém, não deixe que o mesmo nome se repita na mesma linha.
+**6** - Crie uma query que retorne **duas colunas** com os **nomes** das pessoas associadas que possuem o mesmo **endereço**. Porém, não deixe que o mesmo nome se repita na mesma linha.
 
 ```mysql
 USE academia;
@@ -838,7 +838,7 @@ WHERE
 ```
 &nbsp;
 
-**7** - Crie uma query que retorne **duas coluna** com os **nomes** das pessoas treinadoras que possuem o mesmo **endereço**. Porém, não deixe que o mesmo nome se repita na mesma linha.
+**7** - Crie uma query que retorne **duas colunas** com os **nomes** das pessoas treinadoras que possuem o mesmo **endereço**. Porém, não deixe que o mesmo nome se repita na mesma linha.
 
 ```mysql
 USE academia;
@@ -871,7 +871,7 @@ GROUP BY Nome_Plano;
 ```
 &nbsp;
 
-**9** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo', com o **nome completo** das pessoas associadas a academia, e **uma coluna** com o **período** de treino dessa pessoa. Utilize as tabelas Pessoa_Associada, Treino e Horario.
+**9** - Crie uma query que retorne **uma coluna** com o **nome completo** das pessoas associadas a academia, nomeie como 'Nome Completo', e **uma coluna** com o **período** de treino dessa pessoa. Utilize as tabelas Pessoa_Associada, Treino e Horario.
 
 ```mysql
 USE academia;
@@ -889,7 +889,7 @@ FROM
 ```
 &nbsp;
 
-**10** - Crie uma query que retorne **uma coluna** nomeada como 'Nome Completo' com o **nome completo** de **todas** as pessoas associadas a academia e **uma coluna** com o nome 'Horario', mostrando o **período** dessa pessoa. Caso a pessoa não tiver período estipulado, exiba 'LIVRE'. Utilize as tabelas Pessoa_Associada, Aula e Horario.
+**10** - Crie uma query que retorne **uma coluna** com o **nome completo** de **todas** as pessoas associadas a academia, nomeada como 'Nome Completo', e **uma coluna** mostrando o **período** de treino dessa pessoa, nomeada como 'Horario'. Caso a pessoa não tenha período estipulado, exiba 'LIVRE'. Utilize as tabelas Pessoa_Associada, Aula e Horario.
 
 ```mysql
 USE academia;
