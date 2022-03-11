@@ -13,8 +13,10 @@
 - [INNER JOIN](#inner-join)  
 - [LEFT JOIN e RIGHT JOIN](#left-join-e-right-join)  
 - [SELF JOIN](#self-join)  
-- [Vamos praticar!](#vamos-praticar!)  
-- [Recursos Adicionais](#recursos-adicionais)  
+- [Vamos praticar!](#vamos-praticar)  
+  - [Gabarito](#gabarito)
+- [Recursos Adicionais](#recursos-adicionais)
+  
 
 ---
 &nbsp;
@@ -1141,6 +1143,12 @@ nomeie essa coluna como 'Pessoas'. Utilize as tabelas Pessoa_Treinadora, Treino,
 &nbsp;
 
 **6** - Escreva uma query que retorne o **nome da pessoa associada** e o **nome da pessoa treinadora** responável pelo seu treino de acordo com a modalidade e o horário.
+
+---
+&nbsp;
+# Gabarito
+
+[Ir para gabarito](./Gabarito.md)
 
 ---
 &nbsp;
