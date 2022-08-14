@@ -418,7 +418,7 @@ INSERT INTO final_space_db.Character(
 **1** - Escreva uma query que retorne **uma coluna** com o **nome dos personagens** e **uma coluna** com o **nome de sua espécie**.  
 *Dica: Quando queremos usar uma palavra reservada do mysql para referenciar a uma tabela, devemos colocar a palavra entre o acento grave (`) .  Por exemplo, o banco de dados fornecido para os exercícios de fixação possui uma tabela com o nome de Character, uma palavra reservada, então ao referencia-lá   escrevemos:*  &#96;*Character*&#96;.
 
-**2** - Escreva uma queries que retorne **uma coluna** com os **nomes dos personagens** e **uma coluna** com o **nome do seu local de origem**.
+**2** - Escreva uma query que retorne **uma coluna** com os **nomes dos personagens** e **uma coluna** com o **nome do seu local de origem**.
 
 **3** - Agora, retorne o **nome do personagem**, **sua espécie** e o **lugar de origem** em uma query.
 
